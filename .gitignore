@@ -5,6 +5,7 @@
 ###############
 /target/
 /build/
+/.idea/
 
 ###############
 #  fixed file #

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +25,7 @@ public class UserService {
 
     /**
      * 获取用户总数
+     *
      * @param condition 查询条件
      * @return 用户总数
      */
@@ -35,6 +35,7 @@ public class UserService {
 
     /**
      * 根据用户ID查找用户实体
+     *
      * @param id 用户ID
      * @return 用户实体
      */
@@ -44,6 +45,7 @@ public class UserService {
 
     /**
      * 取出所有的用户
+     *
      * @param rowBounds 分页标签
      * @return 用户列表
      */
@@ -53,6 +55,7 @@ public class UserService {
 
     /**
      * 根据条件查找用户
+     *
      * @param condition 查找条件
      * @return 用户列表
      */
