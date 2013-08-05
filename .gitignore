@@ -1,0 +1,52 @@
+#######开放模式############
+
+###############
+#    folder   #
+###############
+/target/
+/build/
+
+###############
+#  fixed file #
+###############
+*.exe
+*.txt
+*.def
+*.dsp
+*.lib
+*.doc
+*.dll
+*.lnt
+*.pm
+*.xls
+*.dbg
+*.DBG
+*.o
+*.plg
+*.keep
+
+.settings
+.classpath
+.project
+*.ipr
+*.iws
+.idea
+*.iml
+
+
+###############
+#  temp file  #
+###############
+~*
+*.log
+*.cmm
+*.men
+*.ini
+*.fig
+*.cmp
+*.tmp
+
+###############
+#    script   #
+###############
+*.bat
