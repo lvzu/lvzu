@@ -6,6 +6,9 @@
 /target/
 /build/
 /.idea/
+/.settings/
+/.classpath/
+/.project/
 
 ###############
 #  fixed file #
