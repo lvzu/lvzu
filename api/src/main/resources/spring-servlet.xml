@@ -13,14 +13,26 @@
         <property name="locations" value="classpath:api.properties"/>
     </bean>
 
+    <!-- 完成请求和注解POJO的映射 放在component-scan前面，解决乱码问题 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+        <property name="messageConverters">
+            <list>
+                <bean class = "org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name = "supportedMediaTypes">
+                        <list>
+                            <value>text/html;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
     <!-- 扫描所有的controller -->
     <context:component-scan base-package="com.lvzu.api" />
 
     <!-- 启用spring mvc 注解 -->
     <context:annotation-config />
-
-    <!-- 完成请求和注解POJO的映射 -->
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
 
     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 
