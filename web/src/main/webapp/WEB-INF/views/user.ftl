@@ -1,12 +1,12 @@
-<#include "html.ftl">
-<@html title="用户列表页">
+<#import "common/pagination.ftl" as pagination/>
 
-<#list users as user>
-    ID:${user.id} -- Name:${user.username}<br>
-</#list>
+<@pagination.bind page/>
+<@pagination.output/>
 <br>
-${pagination.toString()}
+<br>
+<#list page.results as user>
+${user.id}  -  ${user.username} <br>
+</#list>
 
-
-<a href="./images/t.jpg">adsf</a>
-</@html>
+<br>
+<@pagination.output/>

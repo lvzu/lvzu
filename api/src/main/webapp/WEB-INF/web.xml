@@ -7,7 +7,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:applicationContext-api.xml,
-            classpath*:applicationContext-core.xml
+            classpath*:applicationContext-runtime.xml
         </param-value>
     </context-param>
     <listener>

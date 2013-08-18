@@ -18,8 +18,9 @@
     <!-- enable autowire -->
     <context:annotation-config/>
 
-    <!-- 统一异常处理类 -->
-    <bean class="com.lvzu.api.handler.FacadeExceptionHandler"/>
+    <!--通用异常拦截器-->
+    <bean class="com.lvzu.common.handler.GeneralExceptionHandler" />
+
 
     <!-- 解决拦截静态资源总是 （jpg/js/css)-->
     <mvc:default-servlet-handler/>
