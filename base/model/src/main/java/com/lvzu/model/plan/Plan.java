@@ -1,6 +1,8 @@
-package com.lvzu.model;
+package com.lvzu.model.plan;
 
 import com.lvzu.common.Id;
+import com.lvzu.model.TrafficType;
+import com.lvzu.model.User;
 
 import java.util.Date;
 
@@ -22,6 +24,7 @@ public class Plan extends Id {
     private Date beginTime;
     private Date createTime;
     private Date publishTime;
+    private Date finishTime;
 
     public User getUser() {
         return user;
@@ -101,5 +104,13 @@ public class Plan extends Id {
 
     public void setPublishTime(Date publishTime) {
         this.publishTime = publishTime;
+    }
+
+    public Date getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(Date finishTime) {
+        this.finishTime = finishTime;
     }
 }

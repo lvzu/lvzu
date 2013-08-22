@@ -1,6 +1,7 @@
-package com.lvzu.model;
+package com.lvzu.model.plan;
 
 import com.lvzu.common.Id;
+import com.lvzu.model.User;
 
 import java.util.Date;
 
