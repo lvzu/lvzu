@@ -8,7 +8,7 @@ import com.lvzu.common.Id;
  * Time: 上午11:10
  * Description:
  */
-public class footmark_image_relation extends Id {
+public class FootMarkImageRelation extends Id {
     private  Long footmark_id;
     private  Long img_id;
 

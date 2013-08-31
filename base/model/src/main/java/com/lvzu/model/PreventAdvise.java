@@ -8,7 +8,7 @@ import com.lvzu.common.Id;
  * Time: 上午11:08
  * Description:
  */
-public class prevent_advise extends Id {
+public class PreventAdvise extends Id {
     private String content;
     private Long answer_id;
     private int type;
