@@ -5,19 +5,18 @@ import com.lvzu.common.Id;
 import java.util.Date;
 
 /**
- * User: robort
+ * User: liuhaiping
  * Date: 13-8-31
  * Time: 上午11:10
- * Description:
+ * Description:游记中的每个足迹。描述一段旅程的内容。
  */
 public class FootMark extends Id {
 
 
-    private Long journeyid;
-    private String title;
-    private String content;
-    private Date createtime;
-    private String footmarkcol;
+    private Long   journeyid;  //游记ID
+    private String title;      //足迹标题
+    private String content;    //足迹内容
+    private Date   createtime; //创建时间
 
     public Long getJourneyid() {
         return journeyid;
@@ -51,11 +50,4 @@ public class FootMark extends Id {
         this.createtime = createtime;
     }
 
-    public String getFootmarkcol() {
-        return footmarkcol;
-    }
-
-    public void setFootmarkcol(String footmarkcol) {
-        this.footmarkcol = footmarkcol;
-    }
 }

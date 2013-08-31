@@ -3,16 +3,16 @@ package com.lvzu.model;
 import com.lvzu.common.Id;
 
 /**
- * User: robort
+ * User: liuhaiping
  * Date: 13-8-31
  * Time: 上午11:11
- * Description:
+ * Description:目的地 主要是指城市。
  */
 public class Destination extends Id {
 
-    private String placename;
-    private Long scenicspotsid;
-    private String description;
+    private String placename;     //目的地名称
+    private Long   scenicspotsid; //旅游景点ID
+    private String description;   //目的地描述
 
     public String getPlacename() {
         return placename;

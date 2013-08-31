@@ -3,23 +3,22 @@ package com.lvzu.model;
 import com.lvzu.common.Id;
 
 /**
- * User: robort
+ * User: liuhaiping
  * Date: 13-8-31
  * Time: 上午11:11
- * Description:
+ * Description:回答问题的内容。
  */
 public class Answer extends Id {
-    private Long questionid;
-    private Long auserId;
-    private Long quseriId;
-    private Long destinationid;
-    private Long scenicspotsid;
-    private Long cost;
-    private String defendmerchant;
-    private String defendguide;
-    private String food;
-    private String hotel;
-    private String despcription;
+    private Long questionid;        //问题ID
+    private Long auserId;           //回答者ID
+    private Long quseriId;          //提问者ID
+    private Long destinationid;     //目的地ID
+    private Long scenicspotsid;     //景点ID
+    private Long cost;              //预算花销
+    private Long preventadviseid;   //防范ID：0：商家1：旅游
+    private String food;            //吃相关的描述
+    private String hotel;           //住宿相关的描述
+    private String despcription;    //回答内容的一段描述。
 
     public Long getQuestionid() {
         return questionid;
@@ -69,24 +68,16 @@ public class Answer extends Id {
         this.cost = cost;
     }
 
-    public String getDefendmerchant() {
-        return defendmerchant;
-    }
-
-    public void setDefendmerchant(String defendmerchant) {
-        this.defendmerchant = defendmerchant;
-    }
-
-    public String getDefendguide() {
-        return defendguide;
-    }
-
-    public void setDefendguide(String defendguide) {
-        this.defendguide = defendguide;
-    }
-
     public String getFood() {
         return food;
+    }
+
+    public Long getPreventadviseid() {
+        return preventadviseid;
+    }
+
+    public void setPreventadviseid(Long preventadviseid) {
+        this.preventadviseid = preventadviseid;
     }
 
     public void setFood(String food) {

@@ -3,15 +3,15 @@ package com.lvzu.model;
 import com.lvzu.common.Id;
 
 /**
- * User: robort
+ * User: liuhaiping
  * Date: 13-8-31
  * Time: 上午11:08
- * Description:
+ * Description:在景点防范的内容。
  */
 public class PreventAdvise extends Id {
-    private String content;
-    private Long answer_id;
-    private Integer type;
+    private String  content;   //内容
+    private Long    answer_id; //回答id
+    private Integer type;      //防止的类型 0:商家 1:导游
 
     public String getContent() {
         return content;

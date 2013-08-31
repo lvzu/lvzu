@@ -5,19 +5,19 @@ import com.lvzu.common.Id;
 import java.util.Date;
 
 /**
- * User: robort
+ * User: liuhaiping
  * Date: 13-8-31
  * Time: 上午11:09
- * Description:
+ * Description:统一管理图片的表。
  */
 public class Images extends Id {
-    private String name;
-    private String suffix;
-    private String url;
-    private String width;
-    private String height;
-    private Integer status;
-    private Date create_time;
+    private String  name;       //图片名称
+    private String  suffix;     //后缀名
+    private String  url;        //地址
+    private String  width;      //宽度
+    private String  height;     //高度
+    private Integer status;     //状态
+    private Date    createtime; //创建时间
 
     public String getName() {
         return name;
@@ -67,11 +67,15 @@ public class Images extends Id {
         this.status = status;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 }

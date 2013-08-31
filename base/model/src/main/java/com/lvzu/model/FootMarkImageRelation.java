@@ -3,14 +3,14 @@ package com.lvzu.model;
 import com.lvzu.common.Id;
 
 /**
- * User: robort
+ * User: liuhaiping
  * Date: 13-8-31
  * Time: 上午11:10
- * Description:
+ * Description:足迹与相关图片的表。
  */
 public class FootMarkImageRelation extends Id {
-    private  Long footmark_id;
-    private  Long img_id;
+    private  Long footmark_id; //足迹ID
+    private  Long img_id;      //图片ID
 
     public Long getFootmark_id() {
         return footmark_id;

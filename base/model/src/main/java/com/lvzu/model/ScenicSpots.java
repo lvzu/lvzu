@@ -3,14 +3,14 @@ package com.lvzu.model;
 import com.lvzu.common.Id;
 
 /**
- * User: robort
+ * User: liuhaiping
  * Date: 13-8-31
  * Time: 上午11:07
- * Description:
+ * Description:景点描述。从属于目的地。
  */
 public class ScenicSpots extends Id {
-    private String name;
-    private String description;
+    private String name;       //景点名称
+    private String description;//景点描述
 
     public String getName() {
         return name;

@@ -5,20 +5,20 @@ import com.lvzu.common.Id;
 import java.util.Date;
 
 /**
- * User: robort
+ * User: liuhaiping
  * Date: 13-8-31
  * Time: 上午11:09
- * Description:
+ * Description:游记，其中会包括足迹的内容。
  */
 public class Journey extends Id {
-    private Long userid;
-    private String title;
-    private Integer status;
-    private Long days;
-    private Long cost;
-    private Long destinationid;
-    private Date createtime;
-    private Date finishtime;
+    private Long    userid;        //用户ID
+    private String  title;         //行程标题
+    private Integer status;        //行程状态
+    private Long    days;          //时间预算
+    private Long    cost;          //花销预算
+    private Long    destinationid; //目的地ID
+    private Date    createtime;    //创建时间
+    private Date    finishtime;    //行程结束时间
 
     public Long getUserid() {
         return userid;
