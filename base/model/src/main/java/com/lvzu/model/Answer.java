@@ -20,64 +20,64 @@ public class Answer extends Id {
     private String hotel;           //住宿相关的描述
     private String despcription;    //回答内容的一段描述。
 
-    public Long getQuestionid() {
+    public long getQuestionid() {
         return questionid;
     }
 
-    public void setQuestionid(Long questionid) {
+    public void setQuestionid(long questionid) {
         this.questionid = questionid;
     }
 
-    public Long getAuserId() {
+    public long getAuserId() {
         return auserId;
     }
 
-    public void setAuserId(Long auserId) {
+    public void setAuserId(long auserId) {
         this.auserId = auserId;
     }
 
-    public Long getQuseriId() {
+    public long getQuseriId() {
         return quseriId;
     }
 
-    public void setQuseriId(Long quseriId) {
+    public void setQuseriId(long quseriId) {
         this.quseriId = quseriId;
     }
 
-    public Long getDestinationid() {
+    public long getDestinationid() {
         return destinationid;
     }
 
-    public void setDestinationid(Long destinationid) {
+    public void setDestinationid(long destinationid) {
         this.destinationid = destinationid;
     }
 
-    public Long getScenicspotsid() {
+    public long getScenicspotsid() {
         return scenicspotsid;
     }
 
-    public void setScenicspotsid(Long scenicspotsid) {
+    public void setScenicspotsid(long scenicspotsid) {
         this.scenicspotsid = scenicspotsid;
     }
 
-    public Long getCost() {
+    public long getCost() {
         return cost;
     }
 
-    public void setCost(Long cost) {
+    public void setCost(long cost) {
         this.cost = cost;
+    }
+
+    public long getPreventadviseid() {
+        return preventadviseid;
+    }
+
+    public void setPreventadviseid(long preventadviseid) {
+        this.preventadviseid = preventadviseid;
     }
 
     public String getFood() {
         return food;
-    }
-
-    public Long getPreventadviseid() {
-        return preventadviseid;
-    }
-
-    public void setPreventadviseid(Long preventadviseid) {
-        this.preventadviseid = preventadviseid;
     }
 
     public void setFood(String food) {
@@ -99,6 +99,4 @@ public class Answer extends Id {
     public void setDespcription(String despcription) {
         this.despcription = despcription;
     }
-
-
 }

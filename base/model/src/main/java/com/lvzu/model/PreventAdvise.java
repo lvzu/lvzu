@@ -21,11 +21,11 @@ public class PreventAdvise extends Id {
         this.content = content;
     }
 
-    public Long getAnswer_id() {
+    public long getAnswer_id() {
         return answer_id;
     }
 
-    public void setAnswer_id(Long answer_id) {
+    public void setAnswer_id(long answer_id) {
         this.answer_id = answer_id;
     }
 

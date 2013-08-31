@@ -18,11 +18,11 @@ public class FootMark extends Id {
     private String content;    //足迹内容
     private Date   createtime; //创建时间
 
-    public Long getJourneyid() {
+    public long getJourneyid() {
         return journeyid;
     }
 
-    public void setJourneyid(Long journeyid) {
+    public void setJourneyid(long journeyid) {
         this.journeyid = journeyid;
     }
 
@@ -49,5 +49,4 @@ public class FootMark extends Id {
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
     }
-
 }

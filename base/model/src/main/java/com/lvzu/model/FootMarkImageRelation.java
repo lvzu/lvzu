@@ -12,19 +12,19 @@ public class FootMarkImageRelation extends Id {
     private  long footmark_id; //足迹ID
     private  long img_id;      //图片ID
 
-    public Long getFootmark_id() {
+    public long getFootmark_id() {
         return footmark_id;
     }
 
-    public void setFootmark_id(Long footmark_id) {
+    public void setFootmark_id(long footmark_id) {
         this.footmark_id = footmark_id;
     }
 
-    public Long getImg_id() {
+    public long getImg_id() {
         return img_id;
     }
 
-    public void setImg_id(Long img_id) {
+    public void setImg_id(long img_id) {
         this.img_id = img_id;
     }
 }

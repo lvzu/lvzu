@@ -36,35 +36,35 @@ public class Journey extends Id {
         this.title = title;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public Long getDays() {
+    public long getDays() {
         return days;
     }
 
-    public void setDays(Long days) {
+    public void setDays(long days) {
         this.days = days;
     }
 
-    public Long getCost() {
+    public long getCost() {
         return cost;
     }
 
-    public void setCost(Long cost) {
+    public void setCost(long cost) {
         this.cost = cost;
     }
 
-    public Long getDestinationid() {
+    public long getDestinationid() {
         return destinationid;
     }
 
-    public void setDestinationid(Long destinationid) {
+    public void setDestinationid(long destinationid) {
         this.destinationid = destinationid;
     }
 

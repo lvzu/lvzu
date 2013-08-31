@@ -67,10 +67,6 @@ public class Images extends Id {
         this.status = status;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
     public Date getCreatetime() {
         return createtime;
     }

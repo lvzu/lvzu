@@ -19,28 +19,23 @@ public class Question extends Id {
                                 //也可能没有写行程。所以允许为NULL
     private String  title;      //问题标题
     private String  description;//简单描述
-    private int status;     //问题状态:0:问题中 1:问题结束
+    private int     status;     //问题状态:0:问题中 1:问题结束
     private Date    createtime; //创建时间
     private Date    finishtime; //问题完成时间
 
-
-    public Long getUserid() {
+    public long getUserid() {
         return userid;
     }
 
-    public void setUserid(Long userid) {
+    public void setUserid(long userid) {
         this.userid = userid;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Long getJourneyid() {
+    public long getJourneyid() {
         return journeyid;
     }
 
-    public void setJourneyid(Long journeyid) {
+    public void setJourneyid(long journeyid) {
         this.journeyid = journeyid;
     }
 
@@ -83,7 +78,5 @@ public class Question extends Id {
     public void setFinishtime(Date finishtime) {
         this.finishtime = finishtime;
     }
-
-
 }
 

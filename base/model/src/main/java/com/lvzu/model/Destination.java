@@ -22,11 +22,11 @@ public class Destination extends Id {
         this.placename = placename;
     }
 
-    public Long getScenicspotsid() {
+    public long getScenicspotsid() {
         return scenicspotsid;
     }
 
-    public void setScenicspotsid(Long scenicspotsid) {
+    public void setScenicspotsid(long scenicspotsid) {
         this.scenicspotsid = scenicspotsid;
     }
 
@@ -37,5 +37,4 @@ public class Destination extends Id {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }
