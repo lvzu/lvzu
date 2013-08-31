@@ -2,7 +2,6 @@ package com.lvzu.model;
 
 import com.lvzu.common.Id;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**

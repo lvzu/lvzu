@@ -41,6 +41,10 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>Servlet</servlet-name>
+        <servlet-class>com.lvzu.web.Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern>
