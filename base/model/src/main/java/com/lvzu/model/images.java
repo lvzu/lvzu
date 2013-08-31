@@ -10,7 +10,7 @@ import java.util.Date;
  * Time: 上午11:09
  * Description:
  */
-public class images extends Id {
+public class Images extends Id {
     private String name;
     private String suffix;
     private String url;

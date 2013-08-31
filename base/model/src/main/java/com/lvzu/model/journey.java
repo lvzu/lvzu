@@ -10,7 +10,7 @@ import java.util.Date;
  * Time: 上午11:09
  * Description:
  */
-public class journey extends Id {
+public class Journey extends Id {
     private Long userid;
     private String title;
     private int status;

@@ -8,7 +8,7 @@ import com.lvzu.common.Id;
  * Time: 上午11:11
  * Description:
  */
-public class answer extends Id {
+public class Answer extends Id {
     private Long questionid;
     private Long auserId;
     private Long quseriId;

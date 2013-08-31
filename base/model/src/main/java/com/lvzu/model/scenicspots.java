@@ -8,7 +8,7 @@ import com.lvzu.common.Id;
  * Time: 上午11:07
  * Description:
  */
-public class scenicspots extends Id {
+public class ScenicSpots extends Id {
     private String name;
     private String description;
 
