@@ -11,7 +11,7 @@ import com.lvzu.common.Id;
 public class Destination extends Id {
 
     private String placename;     //目的地名称
-    private Long   scenicspotsid; //旅游景点ID
+    private long   scenicspotsid; //旅游景点ID
     private String description;   //目的地描述
 
     public String getPlacename() {

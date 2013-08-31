@@ -9,8 +9,8 @@ import com.lvzu.common.Id;
  * Description:足迹与相关图片的表。
  */
 public class FootMarkImageRelation extends Id {
-    private  Long footmark_id; //足迹ID
-    private  Long img_id;      //图片ID
+    private  long footmark_id; //足迹ID
+    private  long img_id;      //图片ID
 
     public Long getFootmark_id() {
         return footmark_id;

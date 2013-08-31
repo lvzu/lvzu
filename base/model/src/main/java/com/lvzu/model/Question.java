@@ -14,12 +14,12 @@ import java.util.Date;
 public class Question extends Id {
 
 
-    private Long    userid;     //提问者ID
-    private Long    journeyid;  //行程ID:因为一个问题提出的时候，
+    private long    userid;     //提问者ID
+    private long    journeyid;  //行程ID:因为一个问题提出的时候，
                                 //也可能没有写行程。所以允许为NULL
     private String  title;      //问题标题
     private String  description;//简单描述
-    private Integer status;     //问题状态:0:问题中 1:问题结束
+    private int status;     //问题状态:0:问题中 1:问题结束
     private Date    createtime; //创建时间
     private Date    finishtime; //问题完成时间
 

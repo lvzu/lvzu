@@ -10,8 +10,8 @@ import com.lvzu.common.Id;
  */
 public class PreventAdvise extends Id {
     private String  content;   //内容
-    private Long    answer_id; //回答id
-    private Integer type;      //防止的类型 0:商家 1:导游
+    private long    answer_id; //回答id
+    private int type;      //防止的类型 0:商家 1:导游
 
     public String getContent() {
         return content;

@@ -13,7 +13,7 @@ import java.util.Date;
 public class FootMark extends Id {
 
 
-    private Long   journeyid;  //游记ID
+    private long   journeyid;  //游记ID
     private String title;      //足迹标题
     private String content;    //足迹内容
     private Date   createtime; //创建时间

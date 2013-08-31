@@ -14,9 +14,9 @@ public class Journey extends Id {
     private Long    userid;        //用户ID
     private String  title;         //行程标题
     private Integer status;        //行程状态
-    private Long    days;          //时间预算
-    private Long    cost;          //花销预算
-    private Long    destinationid; //目的地ID
+    private long    days;          //时间预算
+    private long    cost;          //花销预算
+    private long    destinationid; //目的地ID
     private Date    createtime;    //创建时间
     private Date    finishtime;    //行程结束时间
 

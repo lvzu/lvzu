@@ -9,13 +9,13 @@ import com.lvzu.common.Id;
  * Description:回答问题的内容。
  */
 public class Answer extends Id {
-    private Long questionid;        //问题ID
-    private Long auserId;           //回答者ID
-    private Long quseriId;          //提问者ID
-    private Long destinationid;     //目的地ID
-    private Long scenicspotsid;     //景点ID
-    private Long cost;              //预算花销
-    private Long preventadviseid;   //防范ID：0：商家1：旅游
+    private long questionid;        //问题ID
+    private long auserId;           //回答者ID
+    private long quseriId;          //提问者ID
+    private long destinationid;     //目的地ID
+    private long scenicspotsid;     //景点ID
+    private long cost;              //预算花销
+    private long preventadviseid;   //防范ID：0：商家1：旅游
     private String food;            //吃相关的描述
     private String hotel;           //住宿相关的描述
     private String despcription;    //回答内容的一段描述。

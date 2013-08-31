@@ -16,7 +16,7 @@ public class Images extends Id {
     private String  url;        //地址
     private String  width;      //宽度
     private String  height;     //高度
-    private Integer status;     //状态
+    private int     status;     //状态
     private Date    createtime; //创建时间
 
     public String getName() {
