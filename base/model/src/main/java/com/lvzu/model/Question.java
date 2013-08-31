@@ -18,7 +18,7 @@ public class Question extends Id {
     private Long journeyid;
     private String title;
     private String description;
-    private int status;
+    private Integer status;
     private Date createtime;
     private Date finishtime;
 

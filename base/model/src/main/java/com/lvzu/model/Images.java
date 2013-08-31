@@ -16,7 +16,7 @@ public class Images extends Id {
     private String url;
     private String width;
     private String height;
-    private int status;
+    private Integer status;
     private Date create_time;
 
     public String getName() {

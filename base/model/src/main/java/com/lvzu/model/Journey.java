@@ -13,7 +13,7 @@ import java.util.Date;
 public class Journey extends Id {
     private Long userid;
     private String title;
-    private int status;
+    private Integer status;
     private Long days;
     private Long cost;
     private Long destinationid;

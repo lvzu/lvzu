@@ -11,7 +11,7 @@ import com.lvzu.common.Id;
 public class PreventAdvise extends Id {
     private String content;
     private Long answer_id;
-    private int type;
+    private Integer type;
 
     public String getContent() {
         return content;
