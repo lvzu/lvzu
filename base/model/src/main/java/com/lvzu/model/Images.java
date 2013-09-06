@@ -17,7 +17,7 @@ public class Images extends Id {
     private String  width;      //宽度
     private String  height;     //高度
     private int     status;     //状态
-    private Date    createtime; //创建时间
+    private Date    createTime; //创建时间
 
     public String getName() {
         return name;
@@ -67,11 +67,11 @@ public class Images extends Id {
         this.status = status;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

@@ -11,21 +11,21 @@ import java.util.Date;
  * Description:游记，其中会包括足迹的内容。
  */
 public class Journey extends Id {
-    private Long    userid;        //用户ID
+    private Long    userId;        //用户ID
     private String  title;         //行程标题
     private Integer status;        //行程状态
     private long    days;          //时间预算
     private long    cost;          //花销预算
-    private long    destinationid; //目的地ID
-    private Date    createtime;    //创建时间
-    private Date    finishtime;    //行程结束时间
+    private long    destinationId; //目的地ID
+    private Date    createTime;    //创建时间
+    private Date    finishTime;    //行程结束时间
 
-    public Long getUserid() {
-        return userid;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -60,27 +60,27 @@ public class Journey extends Id {
         this.cost = cost;
     }
 
-    public long getDestinationid() {
-        return destinationid;
+    public long getDestinationId() {
+        return destinationId;
     }
 
-    public void setDestinationid(long destinationid) {
-        this.destinationid = destinationid;
+    public void setDestinationId(long destinationId) {
+        this.destinationId = destinationId;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getFinishtime() {
-        return finishtime;
+    public Date getFinishTime() {
+        return finishTime;
     }
 
-    public void setFinishtime(Date finishtime) {
-        this.finishtime = finishtime;
+    public void setFinishTime(Date finishTime) {
+        this.finishTime = finishTime;
     }
 }

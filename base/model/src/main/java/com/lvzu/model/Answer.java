@@ -9,55 +9,55 @@ import com.lvzu.common.Id;
  * Description:回答问题的内容。
  */
 public class Answer extends Id {
-    private long questionid;        //问题ID
-    private long auserId;           //回答者ID
-    private long quseriId;          //提问者ID
-    private long destinationid;     //目的地ID
-    private long scenicspotsid;     //景点ID
+    private long questionId;        //问题ID
+    private long aUserId;           //回答者ID
+    private long qUseriId;          //提问者ID
+    private long destinationId;     //目的地ID
+    private long scenicSpotsId;     //景点ID
     private long cost;              //预算花销
-    private long preventadviseid;   //防范ID：0：商家1：旅游
+    private long preventAdviseId;   //防范ID：0：商家1：旅游
     private String food;            //吃相关的描述
     private String hotel;           //住宿相关的描述
     private String despcription;    //回答内容的一段描述。
 
-    public long getQuestionid() {
-        return questionid;
+    public long getQuestionId() {
+        return questionId;
     }
 
-    public void setQuestionid(long questionid) {
-        this.questionid = questionid;
+    public void setQuestionId(long questionId) {
+        this.questionId = questionId;
     }
 
-    public long getAuserId() {
-        return auserId;
+    public long getaUserId() {
+        return aUserId;
     }
 
-    public void setAuserId(long auserId) {
-        this.auserId = auserId;
+    public void setaUserId(long aUserId) {
+        this.aUserId = aUserId;
     }
 
-    public long getQuseriId() {
-        return quseriId;
+    public long getqUseriId() {
+        return qUseriId;
     }
 
-    public void setQuseriId(long quseriId) {
-        this.quseriId = quseriId;
+    public void setqUseriId(long qUseriId) {
+        this.qUseriId = qUseriId;
     }
 
-    public long getDestinationid() {
-        return destinationid;
+    public long getDestinationId() {
+        return destinationId;
     }
 
-    public void setDestinationid(long destinationid) {
-        this.destinationid = destinationid;
+    public void setDestinationId(long destinationId) {
+        this.destinationId = destinationId;
     }
 
-    public long getScenicspotsid() {
-        return scenicspotsid;
+    public long getScenicSpotsId() {
+        return scenicSpotsId;
     }
 
-    public void setScenicspotsid(long scenicspotsid) {
-        this.scenicspotsid = scenicspotsid;
+    public void setScenicSpotsId(long scenicSpotsId) {
+        this.scenicSpotsId = scenicSpotsId;
     }
 
     public long getCost() {
@@ -68,12 +68,12 @@ public class Answer extends Id {
         this.cost = cost;
     }
 
-    public long getPreventadviseid() {
-        return preventadviseid;
+    public long getPreventAdviseId() {
+        return preventAdviseId;
     }
 
-    public void setPreventadviseid(long preventadviseid) {
-        this.preventadviseid = preventadviseid;
+    public void setPreventAdviseId(long preventAdviseId) {
+        this.preventAdviseId = preventAdviseId;
     }
 
     public String getFood() {

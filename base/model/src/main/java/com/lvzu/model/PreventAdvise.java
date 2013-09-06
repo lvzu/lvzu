@@ -10,8 +10,8 @@ import com.lvzu.common.Id;
  */
 public class PreventAdvise extends Id {
     private String  content;   //内容
-    private long    answer_id; //回答id
-    private int type;      //防止的类型 0:商家 1:导游
+    private long    answerId; //回答id
+    private int     type;     //防止的类型 0:商家 1:导游
 
     public String getContent() {
         return content;
@@ -21,12 +21,12 @@ public class PreventAdvise extends Id {
         this.content = content;
     }
 
-    public long getAnswer_id() {
-        return answer_id;
+    public long getAnswerId() {
+        return answerId;
     }
 
-    public void setAnswer_id(long answer_id) {
-        this.answer_id = answer_id;
+    public void setAnswerId(long answerId) {
+        this.answerId = answerId;
     }
 
     public int getType() {

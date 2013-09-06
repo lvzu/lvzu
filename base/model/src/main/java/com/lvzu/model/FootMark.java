@@ -10,20 +10,20 @@ import java.util.Date;
  * Time: 上午11:10
  * Description:游记中的每个足迹。描述一段旅程的内容。
  */
-public class FootMark extends Id {
+public class Footmark extends Id {
 
 
-    private long   journeyid;  //游记ID
+    private long   journeyId;  //游记ID
     private String title;      //足迹标题
     private String content;    //足迹内容
-    private Date   createtime; //创建时间
+    private Date   createTime; //创建时间
 
-    public long getJourneyid() {
-        return journeyid;
+    public long getJourneyId() {
+        return journeyId;
     }
 
-    public void setJourneyid(long journeyid) {
-        this.journeyid = journeyid;
+    public void setJourneyId(long journeyId) {
+        this.journeyId = journeyId;
     }
 
     public String getTitle() {
@@ -42,11 +42,11 @@ public class FootMark extends Id {
         this.content = content;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

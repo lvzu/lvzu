@@ -10,24 +10,24 @@ import com.lvzu.common.Id;
  */
 public class Destination extends Id {
 
-    private String placename;     //目的地名称
-    private long   scenicspotsid; //旅游景点ID
+    private String placeName;     //目的地名称
+    private long   scenicSpotsId; //旅游景点ID
     private String description;   //目的地描述
 
-    public String getPlacename() {
-        return placename;
+    public String getPlaceName() {
+        return placeName;
     }
 
-    public void setPlacename(String placename) {
-        this.placename = placename;
+    public void setPlaceName(String placeName) {
+        this.placeName = placeName;
     }
 
-    public long getScenicspotsid() {
-        return scenicspotsid;
+    public long getScenicSpotsId() {
+        return scenicSpotsId;
     }
 
-    public void setScenicspotsid(long scenicspotsid) {
-        this.scenicspotsid = scenicspotsid;
+    public void setScenicSpotsId(long scenicSpotsId) {
+        this.scenicSpotsId = scenicSpotsId;
     }
 
     public String getDescription() {

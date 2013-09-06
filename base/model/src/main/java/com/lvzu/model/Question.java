@@ -14,29 +14,29 @@ import java.util.Date;
 public class Question extends Id {
 
 
-    private long    userid;     //提问者ID
-    private long    journeyid;  //行程ID:因为一个问题提出的时候，
+    private long    userId;     //提问者ID
+    private long    journeyId;  //行程ID:因为一个问题提出的时候，
                                 //也可能没有写行程。所以允许为NULL
     private String  title;      //问题标题
     private String  description;//简单描述
     private int     status;     //问题状态:0:问题中 1:问题结束
-    private Date    createtime; //创建时间
-    private Date    finishtime; //问题完成时间
+    private Date    createTime; //创建时间
+    private Date    finishTime; //问题完成时间
 
-    public long getUserid() {
-        return userid;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUserid(long userid) {
-        this.userid = userid;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public long getJourneyid() {
-        return journeyid;
+    public long getJourneyId() {
+        return journeyId;
     }
 
-    public void setJourneyid(long journeyid) {
-        this.journeyid = journeyid;
+    public void setJourneyId(long journeyId) {
+        this.journeyId = journeyId;
     }
 
     public String getTitle() {
@@ -63,20 +63,20 @@ public class Question extends Id {
         this.status = status;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getFinishtime() {
-        return finishtime;
+    public Date getFinishTime() {
+        return finishTime;
     }
 
-    public void setFinishtime(Date finishtime) {
-        this.finishtime = finishtime;
+    public void setFinishTime(Date finishTime) {
+        this.finishTime = finishTime;
     }
 }
 
