@@ -12,8 +12,8 @@ import java.util.Date;
  */
 public class User extends Id {
 
-    private String username;
-    private String nickname;
+    private String userName;
+    private String nickName;
     private String password;
     private String gender;
     private Date registerTime;
@@ -27,20 +27,12 @@ public class User extends Id {
         this.gender = gender;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getPassword() {
