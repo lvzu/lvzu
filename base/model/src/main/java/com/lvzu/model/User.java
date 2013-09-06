@@ -12,27 +12,27 @@ import java.util.Date;
  */
 public class User extends Id {
 
-    private String username;
-    private String nickname;
+    private String userName;
+    private String nickName;
     private String password;
     private String gender;
     private Date registerTime;
     private Date updateTime;
 
-    public String getUsername() {
-        return username;
+    public String getGender() {
+        return gender;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getPassword() {
@@ -41,14 +41,6 @@ public class User extends Id {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public Date getRegisterTime() {
@@ -65,5 +57,13 @@ public class User extends Id {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
