@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lvzu.dao.AnswerDao">
+    <cache />
+    <resultMap id="BaseResultMap" type="com.lvzu.model.Answer">
+        <id     column="id"               property="id"              jdbcType="INTEGER"/>
+        <result column="questionid"       property="questionId"      jdbcType="INTEGER"/>
+        <result column="auserid"          property="aUserId"         jdbcType="INTEGER"/>
+        <result column="quserid"          property="qUseriId"        jdbcType="INTEGER"/>
+        <result column="destinationid"    property="destinationId"   jdbcType="VARCHAR"/>
+        <result column="scenicspotsid"    property="scenicSpotsId"   jdbcType="INTEGER"/>
+        <result column="cost"             property="cost"            jdbcType="VARCHAR"/>
+        <result column="preventadviseid"  property="preventAdviseId" jdbcType="INTEGER"/>
+        <result column="food"             property="food"            jdbcType="VARCHAR"/>
+        <result column="hotel"            property="hotel"           jdbcType="VARCHAR"/>
+        <result column="despcription"     property="despcription"    jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="answerByQuser" parameterType="Answer">
+        INSERT INTO answer (questionid, auserid, quserid, destinationid, scenicspotsid, cost, preventadviseid,
+                            food, hotel, despcription)
+            VALUES (#{questionid}, #{auserid}, #{quserid}, #{destinationid}, #{scenicspotsid}, #{cost}, #{preventadviseid},
+                    #{food}, #{hotel}, #{despcription})
+    </insert>
+
+
+    <update id="updateByAuser" parameterType="Answer">
+        UPDATE answer
+        SET destinationid=#{destinationid},
+            scenicspotsid =#{scenicspotsid}, cost=#{cost},
+            preventadviseid=#{preventadviseid}, food=#{food},
+            hotel=#{hotel}, despcription=#{despcription}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteByAuser" parameterType="java.lang.Long">
+        DELETE * FROM answer
+        WHERE auserid = #{auserid} AND id = #{id}
+    </delete>
+
+</mapper>

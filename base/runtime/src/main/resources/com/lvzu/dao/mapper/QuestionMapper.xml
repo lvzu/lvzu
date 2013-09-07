@@ -28,8 +28,8 @@
         WHERE id = #{id}
     </update>
 
-    <delete id="deleteByAuser" parameterType="java.lang.Long">
+    <delete id="deleteByAuser" parameterType="java.lang.Long" >
         DELETE * FROM question
-        WHERE id = #{id}
+        WHERE userid=#{userid} AND id = #{id}
     </delete>
 </mapper>
