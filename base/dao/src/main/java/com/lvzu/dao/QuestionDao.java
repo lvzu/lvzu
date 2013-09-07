@@ -26,7 +26,7 @@ public interface QuestionDao extends BaseDao<Question>{
     public int updateQuestion(Question qMode);
 
     /**
-     * 对提问者更新回答。
+     * 对提问者删除回答。
      * @param qUserId  提问者ID
      * @param questionId 问题ID
      * @return 结果标记：成功：0  失败：1

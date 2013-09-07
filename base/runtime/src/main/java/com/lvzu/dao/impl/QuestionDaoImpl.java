@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 public class QuestionDaoImpl extends MyBatisDaoSupport<Question> implements QuestionDao {
 
     /**
-     * 对提问者更新回答。
+     * 对提问者删除回答。
      *
      * @param qUserId    提问者ID
      * @param questionId 问题ID
