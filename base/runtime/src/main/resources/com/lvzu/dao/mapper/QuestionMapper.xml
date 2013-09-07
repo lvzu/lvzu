@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lvzu.dao.QuestionDao">
+    <cache />
+
+    <resultMap id="BaseResultMap" type="com.lvzu.model.Question">
+        <id     column="id"          property="id"          jdbcType="INTEGER"/>
+        <result column="userid"      property="userId"      jdbcType="INTEGER"/>
+        <result column="journeyid"   property="journeyId"   jdbcType="INTEGER"/>
+        <result column="title"       property="title"       jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="status"      property="status"      jdbcType="INTEGER"/>
+        <result column="createtime"  property="createTime"  jdbcType="TIMESTAMP"/>
+        <result column="finishtime"  property="finishTime"  jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <insert id="addQuestion" parameterType="Question">
+        INSERT INTO question (userid, journeyid, title, description, status, createtime, finishtime)
+            VALUES (#{userid}, #{journeyid}, #{title}, #{description}, 0, now(), #{finishtime})
+    </insert>
+
+
+    <update id="updateQuestion" parameterType="Question">
+        UPDATE question
+        SET journeyid=#{journeyid},
+            title =#{title},description=#{description},
+            status=#{status},finishtime=#{finishtime}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteByAuser" parameterType="java.lang.Long">
+        DELETE * FROM question
+        WHERE id = #{id}
+    </delete>
+</mapper>
