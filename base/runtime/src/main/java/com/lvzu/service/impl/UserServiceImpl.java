@@ -31,6 +31,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByUsername(String username) {
+        return userMapper.selectByUsername(username);
+    }
+
+    @Override
     public Page<User> findAll(Page<User> page) {
         return userMapper.selectAll(page);
     }

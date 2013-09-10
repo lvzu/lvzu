@@ -21,6 +21,14 @@ public interface UserDao extends BaseDao<User> {
     public Page<User> selectAll(Page<User> page);
 
     /**
+     * 根据用户名称查找用户实体
+     *
+     * @param username 用户名
+     * @return 用户实体
+     */
+    public User selectByUsername(String username);
+
+    /**
      * 根据条件查找用户
      * @param condition 查找条件
      * @param page 分页标签

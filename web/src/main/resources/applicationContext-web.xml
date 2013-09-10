@@ -20,4 +20,63 @@
 
     <!-- 解决拦截静态资源总是 （jpg/js/css)-->
     <mvc:default-servlet-handler/>
+
+    <!--
+      - 安全过滤框架 Apache Shiro
+      - 安全过滤 及 权限控制
+      -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <property name="loginUrl" value="/login.htm" />
+        <property name="filters">
+            <map>
+                <entry key="authFilter" value-ref="authFilter"/>
+                <entry key="userFilter" value-ref="userFilter"/>
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                / = anon
+                /index.htm = anon
+                /js/** = anon
+                /css/** = anon
+                /images/** = anon
+                /login.htm = authFilter
+                /logout.htm = logout
+                /user/** = userFilter
+            </value>
+        </property>
+    </bean>
+
+    <bean id="userFilter" class="com.lvzu.web.security.filter.UserFilter" />
+    <bean id="authFilter" class="com.lvzu.web.security.filter.FormAuthenticationFilter" />
+
+    <!-- Security Manager -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="authenticator" ref="authenticator" />
+        <property name="realm" ref="defaultRealm" />
+    </bean>
+    <bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
+        <property name="authenticationListeners">
+            <list>
+                <bean class="com.lvzu.web.security.listener.DefaultAuthenticationListener" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="defaultRealm" class="com.lvzu.web.security.realm.DefaultAuthorizingRealm">
+        <property name="credentialsMatcher" ref="md5CredentialsMatcher" />
+    </bean>
+
+    <bean id="md5CredentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="MD5" />
+    </bean>
+
+    <!-- Security Lifecycle -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- Enable Annotations -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
 </beans>

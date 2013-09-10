@@ -22,6 +22,14 @@ public interface UserService {
     public User find(long id);
 
     /**
+     * 根据用户名称查找用户实体
+     *
+     * @param username 用户名
+     * @return 用户实体
+     */
+    public User findByUsername(String username);
+
+    /**
      * 取出所有的用户
      *
      * @param page 分页标签

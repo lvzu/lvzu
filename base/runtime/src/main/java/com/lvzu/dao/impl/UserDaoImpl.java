@@ -27,6 +27,11 @@ public class UserDaoImpl extends MyBatisDaoSupport<User> implements UserDao {
     }
 
     @Override
+    public User selectByUsername(String username) {
+        return selectOne("selectByUsername", username);
+    }
+
+    @Override
     public Page<User> selectByCondition(Map<String, Object> condition, Page<User> page) {
         return fetchPage("selectAll", page, condition);
     }
