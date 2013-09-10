@@ -1,7 +1,9 @@
 package com.lvzu.dao;
 
-import com.lvzu.model.Answer;
+import com.lvzu.common.Page;
 import com.lvzu.model.Question;
+
+import java.util.Map;
 
 /**
  * User: robort
@@ -32,4 +34,20 @@ public interface QuestionDao extends BaseDao<Question>{
      * @return 结果标记：成功：0  失败：1
      */
     public int deleteByAuser(long qUserId , long questionId);
+
+
+    /**
+     * 取出所有问题列表。
+     * @param page 分页标签
+     * @return 用户列表
+     */
+    public Page<Question> selectAll(Page<Question> page);
+
+    /**
+     * 根据条件查找用户
+     * @param condition 查找条件
+     * @param page 分页标签
+     * @return 用户列表
+     */
+    public Page<Question> selectByCondition(Map<String, Object> condition, Page<Question> page);
 }

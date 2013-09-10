@@ -6,6 +6,8 @@ import com.lvzu.model.Journey;
 import com.lvzu.service.JourneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * User: robort
@@ -13,6 +15,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * Time: 下午5:16
  * Description:
  */
+@Service
+@Transactional
 public class JourneyServiceImpl implements JourneyService{
     @Autowired
     @Qualifier("mybatis")

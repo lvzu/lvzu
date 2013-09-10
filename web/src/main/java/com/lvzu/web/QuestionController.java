@@ -1,8 +1,8 @@
 package com.lvzu.web;
 
 import com.lvzu.common.Page;
-import com.lvzu.model.User;
-import com.lvzu.service.UserService;
+import com.lvzu.model.Question;
+import com.lvzu.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * User: Administrator
- * Date: 13-8-17
- * Time: 下午11:56
+ * User: robort
+ * Date: 13-9-10
+ * Time: 下午10:06
  * Description:
  */
 @Controller
-public class UserController {
+public class QuestionController {
 
     @Autowired
-    private UserService userService;
+    private QuestionService qService;
 
-    @RequestMapping(value = "/user.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/question.htm", method = RequestMethod.GET)
     public ModelAndView list(@RequestParam(required = false) Integer p) {
 
         p = p == null ? 1 : p;
 
-        Page<User> page = new Page<User>(5);
+        Page<Question> page = new Page<Question>(5);
         page.setPageNo(p);
-        Page<User> userPage = userService.findAll(page);
+        Page<Question> questionPage = qService.findAll(page);
 
-        ModelAndView modelAndView = new ModelAndView("user", "page", userPage);
+        ModelAndView modelAndView = new ModelAndView("question", "page", questionPage);
 
         return modelAndView;
     }

@@ -6,6 +6,8 @@ import com.lvzu.model.Footmark;
 import com.lvzu.service.FootmarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * User: liuhaiping
@@ -13,6 +15,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * Time: 下午5:16
  * Description:
  */
+@Service
+@Transactional
 public class FootmakServiceImpl implements FootmarkService {
     @Autowired
     @Qualifier("mybatis")

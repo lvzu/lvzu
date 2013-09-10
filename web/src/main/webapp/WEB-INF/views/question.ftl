@@ -4,8 +4,8 @@
 <@pagination.output/>
 <br>
 <br>
-<#list page.results as user>
-${user.id}  -  ${user.userName} <br>
+<#list page.results as question>
+${question.id}  -  ${question.title} - ${question.journeyId}<br>
 </#list>
 
 <br>
