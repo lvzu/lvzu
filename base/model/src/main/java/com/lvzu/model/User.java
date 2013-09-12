@@ -18,6 +18,7 @@ public class User extends Id {
     private String gender;
     private Date registerTime;
     private Date updateTime;
+    private int validStatus;/* 0:停用 1:正常 */
 
     public String getGender() {
         return gender;
@@ -65,5 +66,13 @@ public class User extends Id {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getValidStatus() {
+        return validStatus;
+    }
+
+    public void setValidStatus(int validStatus) {
+        this.validStatus = validStatus;
     }
 }

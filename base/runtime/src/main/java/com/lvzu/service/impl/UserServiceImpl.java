@@ -44,4 +44,35 @@ public class UserServiceImpl implements UserService {
     public Page<User> findByCondition(Map<String, Object> condition, Page<User> page) {
         return userMapper.selectByCondition(condition, page);
     }
+
+    @Override
+    public int registUser(User user) {
+        return userMapper.insert(user)  ;
+    }
+
+    @Override
+    public int modifyUser(User user) {
+        return userMapper.update(user);
+    }
+
+    @Override
+    public int deleteUser(int userId, int flag) {
+        int result = -1;  //操作标志位
+        try {
+            // 逻辑删除     常量暂时先不定义，留待之后加入
+            if(flag==0){
+                User userInfo=userMapper.select(userId );
+                userInfo.setValidStatus(0);
+                userMapper.update(userInfo);
+                result = 1;
+            }else {  //物理删除
+                userMapper.delete(userId)  ;
+                result = 1;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }
