@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lvzu.dao.FollowerDao">
+    <cache />
+
+    <insert id="insertByUserFollower" parameterType="java.util.Map">
+        insert into follower(userid, followerid) value(#{userId}, #{followerId})
+    </insert>
+
+    <delete id="deleteByUserFollower" parameterType="java.util.Map">
+        DELETE FROM follower
+        WHERE userid = #{userId} AND followerid = #{followerId}
+    </delete>
+
+    <select id="selectFollowers" parameterType="java.util.Map" resultType="User">
+        select * from user where id in (select followerid from follower where userid=#{userId})
+    </select>
+
+    <select id="selectUsers" parameterType="java.util.Map" resultType="User">
+        select * from user where id in (select userid from follower where followerid=#{followerId})
+    </select>
+</mapper>
