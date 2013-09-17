@@ -11,10 +11,11 @@
         <result column="nickname"     property="nickName"     jdbcType="VARCHAR"/>
         <result column="registerTime" property="registerTime" jdbcType="TIMESTAMP"/>
         <result column="updateTime"   property="updateTime"   jdbcType="TIMESTAMP"/>
+        <result column="validstatus"   property="validStatus"   jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="columns">
-        select id,username,gender,password,nickname,registerTime,updateTime from user
+        select id,username,gender,password,nickname,registerTime,updateTime,validstatus from user
     </sql>
 
     <select id="select" parameterType="java.lang.Long" resultType="User">

@@ -7,6 +7,7 @@ import com.lvzu.model.User;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,7 @@ import java.util.Map;
 @Qualifier("mybatis")
 public class FollowerDaoImpl extends MyBatisDaoSupport<User> implements FollowerDao {
 
+    @Override
     public int delete(int userId, int followerId) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("userId", userId);
@@ -29,11 +31,11 @@ public class FollowerDaoImpl extends MyBatisDaoSupport<User> implements Follower
     }
 
     @Override
-    public int insert(int userId, int followerId) {
+    public int insert(int userId, int followerId,int status) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("userId", userId);
         params.put("followerId", followerId);
-
+        params.put("status", status);
         return insert("insertByUserFollower", params);
     }
 
@@ -49,5 +51,15 @@ public class FollowerDaoImpl extends MyBatisDaoSupport<User> implements Follower
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("followerId", followerId);
         return fetchPage("selectUsers", page, params);
+    }
+
+    @Override
+    public int cancelFollow(int userId, int followerId,int status,Date cancelTime) {
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("userId", userId);
+        params.put("followerId", followerId);
+        params.put("status", status);
+        params.put("cancelTime", status);
+        return update("cancelFollow", params);
     }
 }

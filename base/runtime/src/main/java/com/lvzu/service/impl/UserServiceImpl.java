@@ -1,6 +1,7 @@
 package com.lvzu.service.impl;
 
 import com.lvzu.common.Page;
+import com.lvzu.common.RuntimeConstants;
 import com.lvzu.dao.UserDao;
 import com.lvzu.model.User;
 import com.lvzu.service.UserService;
@@ -60,14 +61,14 @@ public class UserServiceImpl implements UserService {
         int result = -1;  //操作标志位
         try {
             // 逻辑删除     常量暂时先不定义，留待之后加入
-            if(flag==0){
+            if(flag== RuntimeConstants.DELETE_LOGIC){
                 User userInfo=userMapper.select(userId );
-                userInfo.setValidStatus(0);
+                userInfo.setValidStatus(RuntimeConstants.STATUS_NOTVALID);
                 userMapper.update(userInfo);
-                result = 1;
+                result = RuntimeConstants.OPERATE_SUCCESS;
             }else {  //物理删除
                 userMapper.delete(userId)  ;
-                result = 1;
+                result = RuntimeConstants.OPERATE_SUCCESS;
             }
         } catch (Exception e){
             e.printStackTrace();

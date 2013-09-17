@@ -3,6 +3,8 @@ package com.lvzu.dao;
 import com.lvzu.common.Page;
 import com.lvzu.model.User;
 
+import java.util.Date;
+
 /**
  * User: lianghongbin
  * Date: 13-9-10
@@ -17,7 +19,7 @@ public interface FollowerDao extends BaseDao<User> {
      * @param followerId 被关注者ID
      * @return 影响条数
      */
-    public int insert(int userId, int followerId);
+    public int insert(int userId, int followerId,int status);
 
     /**
      * 删除一个关注
@@ -40,4 +42,14 @@ public interface FollowerDao extends BaseDao<User> {
      * @return 关注列表
      */
     public Page<User> selectUsers(Page<User> page, int followerId);
+
+    /**
+     * 取消关注
+     * @param userId 操作者ID
+     * @param followerId 被关注者ID
+     * @param status 状态
+     * @param cancelTime 取消关注时间
+     * @return 影响条数
+     */
+    public int cancelFollow(int userId, int followerId,int status,Date cancelTime);
 }
