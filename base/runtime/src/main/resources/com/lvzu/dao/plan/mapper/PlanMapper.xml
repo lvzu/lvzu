@@ -7,7 +7,7 @@
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="days" property="days" jdbcType="VARCHAR"/>
-        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
         <result column="direct" property="direct" jdbcType="BOOLEAN"/>
         <result column="status" property="status" jdbcType="INTEGER"/>
         <result column="traffic" property="trafficType" jdbcType="VARCHAR"/>
@@ -31,8 +31,8 @@
     </select>
 
     <select id="insert" parameterType="Plan">
-        insert into plan(title,days,description,direct,status,traffic,begintime,createtime)
-        values(#{title},#{days},#{description},#{direct},0,#{traffic},#{begintime},now())
+        insert into plan(title,days,content,direct,status,traffic,begintime,createtime)
+        values(#{title},#{days},#{content},#{direct},0,#{traffic},#{begintime},now())
     </select>
 
     <update id="publish" parameterType="java.lang.Long">

@@ -11,20 +11,21 @@ import java.util.Date;
  * Description:游记，其中会包括足迹的内容。
  */
 public class Journey extends Id {
-    private Long    userId;        //用户ID
-    private String  title;         //行程标题
-    private Integer status;        //行程状态
-    private long    days;          //时间预算
-    private long    cost;          //花销预算
-    private long    destinationId; //目的地ID
-    private Date    createTime;    //创建时间
-    private Date    finishTime;    //行程结束时间
 
-    public Long getUserId() {
+    private long userId;             //用户ID
+    private String  title;          //行程标题
+    private int status;             //行程状态
+    private int days;               //时间预算
+    private int cost;               //花销预算
+    private String  destination;    //目的地
+    private Date    createTime;     //创建时间
+    private Date    finishTime;     //行程结束时间
+
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -36,36 +37,36 @@ public class Journey extends Id {
         this.title = title;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
-    public long getDays() {
+    public int getDays() {
         return days;
     }
 
-    public void setDays(long days) {
+    public void setDays(int days) {
         this.days = days;
     }
 
-    public long getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(long cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
-    public long getDestinationId() {
-        return destinationId;
+    public String getDestination() {
+        return destination;
     }
 
-    public void setDestinationId(long destinationId) {
-        this.destinationId = destinationId;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 
     public Date getCreateTime() {

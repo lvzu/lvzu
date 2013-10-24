@@ -2,6 +2,9 @@ package com.lvzu.dao;
 
 import com.lvzu.common.Page;
 import com.lvzu.model.Answer;
+import com.lvzu.model.Question;
+
+import java.util.Map;
 
 /**
  * User: liuhaiping
@@ -10,27 +13,33 @@ import com.lvzu.model.Answer;
  * Description:
  */
 public interface AnswerDao extends BaseDao<Answer>{
-    /**
-     * 对提问者回答。
-     * @param aMode 回答实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    public int answerByQuser(Answer aMode);
-
 
     /**
-     * 对提问者更新回答。
-     * @param aMode  回答者ID
-     * @return 结果标记：成功：0  失败：1
+     * 获取指定问题的所有回答
+     * @param condition 查找条件
+     * @param page 分页标签
+     * @return 回答列表
      */
-    public int updateByAuser(Answer aMode);
+    public Page<Answer> selectByQuestion(Map<String, Object> condition, Page<Question> page);
 
     /**
-     * 对提问者更新回答。
-     * @param aUserId  回答者ID
-     * @param answerId 回答内容ID
-     * @return 结果标记：成功：0  失败：1
+     * 获取指定人员的所有回答
+     * @param condition 查找条件
+     * @param page 分页标签
+     * @return 回答列表
      */
-    public int deleteByAuser(long aUserId , long answerId);
+    public Page<Answer> selectByUser(Map<String, Object> condition, Page<Question> page);
 
+    /**
+     * 设置一个问题的最佳答案
+     * @param condition 相关参数
+     */
+    public void updateBest(Map<String, Object> condition);
+
+    /**
+     * 选出一个问题的最佳答案
+     * @param questionId 问题ID
+     * @return 最佳答案
+     */
+    public Answer selectBest(long questionId);
 }

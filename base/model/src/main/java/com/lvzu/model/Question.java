@@ -3,6 +3,7 @@ package com.lvzu.model;
 import com.lvzu.common.Id;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * User: liuhaiping
@@ -13,15 +14,15 @@ import java.util.Date;
 
 public class Question extends Id {
 
-
-    private long    userId;     //提问者ID
-    private long    journeyId;  //行程ID:因为一个问题提出的时候，
-                                //也可能没有写行程。所以允许为NULL
-    private String  title;      //问题标题
-    private String  description;//简单描述
-    private int     status;     //问题状态:0:问题中 1:问题结束
-    private Date    createTime; //创建时间
-    private Date    finishTime; //问题完成时间
+    private long userId;            //提问者ID
+    private String  title;          //问题标题
+    private String content;         //简单描述
+    private int status;             //问题状态:0:问题中 1:问题结束  2:问题关闭
+    private List<ScenicSpot> scenicSpots;   //相关联景点
+    private long hits;              //点击次数
+    private Date    createTime;     //创建时间
+    private Date    finishTime;     //问题完成时间
+    private Answer  bestAnswer;     //最佳答案
 
     public long getUserId() {
         return userId;
@@ -29,14 +30,6 @@ public class Question extends Id {
 
     public void setUserId(long userId) {
         this.userId = userId;
-    }
-
-    public long getJourneyId() {
-        return journeyId;
-    }
-
-    public void setJourneyId(long journeyId) {
-        this.journeyId = journeyId;
     }
 
     public String getTitle() {
@@ -47,12 +40,12 @@ public class Question extends Id {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getContent() {
+        return content;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getStatus() {
@@ -61,6 +54,22 @@ public class Question extends Id {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public List<ScenicSpot> getScenicSpots() {
+        return scenicSpots;
+    }
+
+    public void setScenicSpots(List<ScenicSpot> scenicSpots) {
+        this.scenicSpots = scenicSpots;
+    }
+
+    public long getHits() {
+        return hits;
+    }
+
+    public void setHits(long hits) {
+        this.hits = hits;
     }
 
     public Date getCreateTime() {
@@ -77,6 +86,14 @@ public class Question extends Id {
 
     public void setFinishTime(Date finishTime) {
         this.finishTime = finishTime;
+    }
+
+    public Answer getBestAnswer() {
+        return bestAnswer;
+    }
+
+    public void setBestAnswer(Answer bestAnswer) {
+        this.bestAnswer = bestAnswer;
     }
 }
 

@@ -32,7 +32,7 @@ public class QuestionServiceImpl implements QuestionService{
      */
     @Override
     public int editQuestion(Question qMode) {
-        return questionMapper.updateQuestion(qMode);
+        return questionMapper.update(qMode);
     }
 
     /**
@@ -44,7 +44,7 @@ public class QuestionServiceImpl implements QuestionService{
      */
     @Override
     public int removeByAuser(long qUserId, long questionId) {
-        return questionMapper.deleteByAuser(qUserId,questionId);
+        return questionMapper.delete(qUserId, questionId);
     }
 
     /**
@@ -55,7 +55,7 @@ public class QuestionServiceImpl implements QuestionService{
      */
     @Override
     public int saveQuestion(Question qMode) {
-        return questionMapper.addQuestion(qMode);
+        return questionMapper.insert(qMode);
     }
 
     /**

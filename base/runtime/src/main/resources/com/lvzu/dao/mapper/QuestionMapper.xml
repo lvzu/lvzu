@@ -8,7 +8,7 @@
         <result column="userid"      property="userId"      jdbcType="INTEGER"/>
         <result column="journeyid"   property="journeyId"   jdbcType="INTEGER"/>
         <result column="title"       property="title"       jdbcType="VARCHAR"/>
-        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
         <result column="status"      property="status"      jdbcType="INTEGER"/>
         <result column="createtime"  property="createTime"  jdbcType="TIMESTAMP"/>
         <result column="finishtime"  property="finishTime"  jdbcType="TIMESTAMP"/>
@@ -20,7 +20,7 @@
             userid,
             journeyid,
             title,
-            description,
+            content,
             status,
             createtime,
             finishtime
@@ -28,15 +28,15 @@
     </sql>
 
     <insert id="addQuestion" parameterType="Question">
-        INSERT INTO question (userid, journeyid, title, description, status, createtime, finishtime)
-            VALUES (#{userid}, #{journeyid}, #{title}, #{description}, 0, now(), #{finishtime})
+        INSERT INTO question (userid, journeyid, title, content, status, createtime, finishtime)
+            VALUES (#{userid}, #{journeyid}, #{title}, #{content}, 0, now(), #{finishtime})
     </insert>
 
 
     <update id="updateQuestion" parameterType="Question">
         UPDATE question
         SET journeyid=#{journeyid},
-            title =#{title},description=#{description},
+            title =#{title},content=#{content},
             status=#{status},finishtime=#{finishtime}
         WHERE id = #{id}
     </update>

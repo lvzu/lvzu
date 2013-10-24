@@ -11,43 +11,53 @@ import java.util.Map;
  * Time: 下午5:46
  * Description:
  */
-public interface QuestionDao extends BaseDao<Question>{
-    /**
-     * 对提问者回答。
-     * @param qMode 提问实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    public int addQuestion(Question qMode);
-
+public interface QuestionDao extends BaseDao<Question> {
 
     /**
-     * 对提问者更新回答。
-     * @param qMode  提问实体
-     * @return 结果标记：成功：0  失败：1
+     * @param id
+     * @return
      */
-    public int updateQuestion(Question qMode);
+    public int hit(long id);
 
     /**
-     * 对提问者删除回答。
-     * @param qUserId  提问者ID
-     * @param questionId 问题ID
-     * @return 结果标记：成功：0  失败：1
+     * 结束一个问题
+     *
+     * @param id 问题ID
+     * @return 影响条数
      */
-    public int deleteByAuser(long qUserId , long questionId);
+    public int finish(long id);
 
+    /**
+     * 关闭一个问题（未完成）
+     *
+     * @param id 问题ID
+     * @return 影响条数
+     */
+    public int close(long id);
 
     /**
      * 取出所有问题列表。
+     *
      * @param page 分页标签
-     * @return 用户列表
+     * @return 问题列表
      */
     public Page<Question> selectAll(Page<Question> page);
 
     /**
      * 根据条件查找用户
+     *
      * @param condition 查找条件
-     * @param page 分页标签
-     * @return 用户列表
+     * @param page      分页标签
+     * @return 问题列表
      */
     public Page<Question> selectByCondition(Map<String, Object> condition, Page<Question> page);
+
+    /**
+     * 根据用户ID查出其所有提问
+     *
+     * @param condition 查找条件（用户ID）
+     * @param page      分页标签
+     * @return 问题列表
+     */
+    public Page<Question> selectByUser(Map<String, Object> condition, Page<Question> page);
 }

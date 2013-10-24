@@ -8,7 +8,8 @@ import com.lvzu.common.Id;
  * Time: 上午11:07
  * Description:景点描述。从属于目的地。
  */
-public class ScenicSpots extends Id {
+public class ScenicSpot extends Id {
+
     private String name;       //景点名称
     private String description;//景点描述
 

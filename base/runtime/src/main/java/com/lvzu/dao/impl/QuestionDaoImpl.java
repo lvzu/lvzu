@@ -19,6 +19,7 @@ import java.util.Map;
 @Repository
 @Qualifier("mybatis")
 public class QuestionDaoImpl extends MyBatisDaoSupport<Question> implements QuestionDao {
+
     /**
      * 取出所有问题列表。
      *
@@ -32,7 +33,7 @@ public class QuestionDaoImpl extends MyBatisDaoSupport<Question> implements Ques
     }
 
     /**
-     * 根据条件查找用户
+     * 根据条件查找问题
      *
      * @param condition 查找条件
      * @param page      分页标签
@@ -43,38 +44,38 @@ public class QuestionDaoImpl extends MyBatisDaoSupport<Question> implements Ques
         return fetchPage("selectAll", page, condition);
     }
 
-    /**
-     * 对提问者删除回答。
-     *
-     * @param qUserId    提问者ID
-     * @param questionId 问题ID
-     * @return 结果标记：成功：0  失败：1
-     */
     @Override
-    public int deleteByAuser(long qUserId, long questionId) {
-        return 0;
+    public Page<Question> selectByUser(Map<String, Object> condition, Page<Question> page) {
+        return fetchPage("selectByUser", page, condition);
     }
 
     /**
-     * 对提问者回答。
-     *
-     * @param qMode 提问实体
-     * @return 结果标记：成功：0  失败：1
+     * 增加点击次数
+     * @param id 问题ID
+     * @return 影响条数
      */
     @Override
-    public int addQuestion(Question qMode) {
-        return 0;
+    public int hit(long id) {
+        return update("hit", id);
     }
 
     /**
-     * 对提问者更新回答。
-     *
-     * @param qMode 提问实体
-     * @return 结果标记：成功：0  失败：1
+     * 结束一个问题
+     * @param id 问题ID
+     * @return 影响条数
      */
     @Override
-    public int updateQuestion(Question qMode) {
-        return 0;
+    public int finish(long id) {
+        return update("finish", id);
     }
 
+    /**
+     * 关闭一个问题
+     * @param id 问题ID
+     * @return 影响条数
+     */
+    @Override
+    public int close(long id) {
+        return 0;
+    }
 }
