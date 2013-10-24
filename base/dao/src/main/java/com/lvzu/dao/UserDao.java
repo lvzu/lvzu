@@ -35,4 +35,6 @@ public interface UserDao extends BaseDao<User> {
      * @return 用户列表
      */
     public Page<User> selectByCondition(Map<String, Object> condition, Page<User> page);
+
+
 }

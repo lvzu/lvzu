@@ -35,4 +35,6 @@ public class UserDaoImpl extends MyBatisDaoSupport<User> implements UserDao {
     public Page<User> selectByCondition(Map<String, Object> condition, Page<User> page) {
         return fetchPage("selectAll", page, condition);
     }
+
+
 }

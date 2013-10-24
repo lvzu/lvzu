@@ -44,4 +44,27 @@ public interface UserService {
      * @return 用户列表
      */
     public Page<User> findByCondition(Map<String, Object> condition, Page<User> page);
+
+    /**
+     * 用户注册
+     * @param user  用户信息
+     * @return  操作成功/失败状态标识
+     */
+    public int registUser(User user);
+
+    /**
+     * 修改用户注册信息
+     * @param user  用户信息
+     * @return  操作成功/失败状态标识
+     */
+    public int modifyUser(User user);
+
+    /**
+     * 删除用户
+     * @param userId 用户id
+     * @param flag  0 逻辑删除 1 物理删除
+     * @return    操作成功/失败状态标识
+     */
+    public  int  deleteUser(int userId,int flag);
+
 }

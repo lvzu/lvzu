@@ -4,7 +4,7 @@
     <cache />
 
     <insert id="insertByUserFollower" parameterType="java.util.Map">
-        insert into follower(userid, followerid) value(#{userId}, #{followerId})
+        insert into follower(userid, followerid,status) value(#{userId}, #{followerId})
     </insert>
 
     <delete id="deleteByUserFollower" parameterType="java.util.Map">
@@ -19,4 +19,10 @@
     <select id="selectUsers" parameterType="java.util.Map" resultType="User">
         select * from user where id in (select userid from follower where followerid=#{followerId})
     </select>
+
+    <update id="cancelFollow" parameterType="java.util.Map">
+        update follower
+        set status= #{status},canceltime= #{cancelTime}
+        WHERE userid = #{userId} AND followerid = #{followerId}
+    </update>
 </mapper>
