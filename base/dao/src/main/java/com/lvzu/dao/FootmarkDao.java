@@ -3,6 +3,8 @@ package com.lvzu.dao;
 import com.lvzu.model.Footmark;
 import com.lvzu.model.Journey;
 
+import java.util.List;
+
 /**
  * User: liuhaiping
  * Date: 13-9-8
@@ -10,25 +12,18 @@ import com.lvzu.model.Journey;
  * Description:
  */
 public interface FootmarkDao extends BaseDao<Footmark>{
-    /**
-     * 对提问者回答。
-     * @param mode 足迹实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    public int addFootmark(Footmark mode);
-
 
     /**
-     * 对提问者更新回答。
-     * @param mode  足迹实体
-     * @return 结果标记：成功：0  失败：1
+     * 点击次数+1
+     * @param id 足迹ID
      */
-    public int editFootmark(Footmark mode);
+    public void hit(long id);
 
     /**
-     * 对提问者删除回答。
-     * @param mode  足迹实体
-     * @return 结果标记：成功：0  失败：1
+     * 顶次数+1
+     * @param id 足迹ID
      */
-    public int removeFootmark(Footmark mode);
+    public void top(long id);
+
+    public List<Footmark>
 }

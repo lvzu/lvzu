@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 /**
- * User: robort
+ * User: lianghongbin
  * Date: 13-9-6
  * Time: 下午9:42
  * Description:
@@ -28,8 +28,8 @@ public class AnswerDaoImpl extends MyBatisDaoSupport<Answer> implements AnswerDa
      * @return 回答列表
      */
     @Override
-    public Page<Answer> selectByQuestion(Map<String, Object> condition, Page<Question> page) {
-        return null;
+    public Page<Answer> selectByQuestion(Map<String, Object> condition, Page<Answer> page) {
+        return fetchPage("selectByQuestion", page, condition);
     }
 
     /**
@@ -40,8 +40,8 @@ public class AnswerDaoImpl extends MyBatisDaoSupport<Answer> implements AnswerDa
      * @return 回答列表
      */
     @Override
-    public Page<Answer> selectByUser(Map<String, Object> condition, Page<Question> page) {
-        return null;
+    public Page<Answer> selectByUser(Map<String, Object> condition, Page<Answer> page) {
+        return fetchPage("selectByUser", page, condition);
     }
 
     /**
@@ -51,6 +51,7 @@ public class AnswerDaoImpl extends MyBatisDaoSupport<Answer> implements AnswerDa
      */
     @Override
     public void updateBest(Map<String, Object> condition) {
+        update("updateBest", condition);
     }
 
     /**
@@ -61,6 +62,6 @@ public class AnswerDaoImpl extends MyBatisDaoSupport<Answer> implements AnswerDa
      */
     @Override
     public Answer selectBest(long questionId) {
-        return null;
+        return selectOne("selectBest", questionId);
     }
 }

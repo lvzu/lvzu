@@ -20,7 +20,7 @@ public interface AnswerDao extends BaseDao<Answer>{
      * @param page 分页标签
      * @return 回答列表
      */
-    public Page<Answer> selectByQuestion(Map<String, Object> condition, Page<Question> page);
+    public Page<Answer> selectByQuestion(Map<String, Object> condition, Page<Answer> page);
 
     /**
      * 获取指定人员的所有回答
@@ -28,7 +28,7 @@ public interface AnswerDao extends BaseDao<Answer>{
      * @param page 分页标签
      * @return 回答列表
      */
-    public Page<Answer> selectByUser(Map<String, Object> condition, Page<Question> page);
+    public Page<Answer> selectByUser(Map<String, Object> condition, Page<Answer> page);
 
     /**
      * 设置一个问题的最佳答案

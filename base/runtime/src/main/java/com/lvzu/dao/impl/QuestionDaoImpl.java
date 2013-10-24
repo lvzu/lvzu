@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User: robort
+ * User: lianghongbin
  * Date: 13-9-6
  * Time: 下午9:42
  * Description:
@@ -76,6 +76,6 @@ public class QuestionDaoImpl extends MyBatisDaoSupport<Question> implements Ques
      */
     @Override
     public int close(long id) {
-        return 0;
+        return update("close", id);
     }
 }

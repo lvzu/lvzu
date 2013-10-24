@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 /**
- * User: robort
+ * User: lianghongbin
  * Date: 13-9-8
  * Time: 下午5:01
  * Description:
@@ -15,36 +15,24 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Qualifier("mybatis")
 public class FootmarkDaoImpl extends MyBatisDaoSupport<Footmark> implements FootmarkDao {
+
     /**
-     * 对提问者回答。
+     * 点击次数+1
      *
-     * @param mode 足迹实体
-     * @return 结果标记：成功：0  失败：1
+     * @param id 足迹ID
      */
     @Override
-    public int addFootmark(Footmark mode) {
-        return 0;
+    public void hit(long id) {
+        update("hit", id);
     }
 
     /**
-     * 对提问者更新回答。
+     * 顶次数+1
      *
-     * @param mode 足迹实体
-     * @return 结果标记：成功：0  失败：1
+     * @param id 足迹ID
      */
     @Override
-    public int editFootmark(Footmark mode) {
-        return 0;
-    }
-
-    /**
-     * 对提问者删除回答。
-     *
-     * @param mode 足迹实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    @Override
-    public int removeFootmark(Footmark mode) {
-        return 0;
+    public void top(long id) {
+        update("top", id);
     }
 }

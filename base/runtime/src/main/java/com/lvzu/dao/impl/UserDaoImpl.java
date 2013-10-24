@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User: Administrator
+ * User: lianghongbin
  * Date: 13-8-17
  * Time: 下午9:49
  * Description:
@@ -33,7 +33,7 @@ public class UserDaoImpl extends MyBatisDaoSupport<User> implements UserDao {
 
     @Override
     public Page<User> selectByCondition(Map<String, Object> condition, Page<User> page) {
-        return fetchPage("selectAll", page, condition);
+        return fetchPage("selectByCondition", page, condition);
     }
 
 
