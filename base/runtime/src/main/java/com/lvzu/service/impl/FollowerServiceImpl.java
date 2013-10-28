@@ -24,22 +24,22 @@ public class FollowerServiceImpl implements FollowerService {
     private FollowerDao followerDao;
 
     @Override
-    public int save(int userId, int followerId) {
-        return followerDao.insert(userId, followerId);
+    public int save(long userId, long followerId, int status) {
+        return followerDao.insert(userId, followerId, status);
     }
 
     @Override
-    public int delete(int userId, int followerId) {
+    public int remove(long userId, long followerId) {
         return followerDao.delete(userId, followerId);
     }
 
     @Override
-    public Page<User> findFollowers(Page<User> page, int userId) {
+    public Page<User> findFollowers(Page<User> page, long userId) {
         return followerDao.selectFollowers(page, userId);
     }
 
     @Override
-    public Page<User> findUsers(Page<User> page, int followerId) {
+    public Page<User> findUsers(Page<User> page, long followerId) {
         return followerDao.selectUsers(page, followerId);
     }
 }

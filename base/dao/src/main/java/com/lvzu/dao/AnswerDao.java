@@ -4,6 +4,7 @@ import com.lvzu.common.Page;
 import com.lvzu.model.Answer;
 import com.lvzu.model.Question;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -42,4 +43,19 @@ public interface AnswerDao extends BaseDao<Answer>{
      * @return 最佳答案
      */
     public Answer selectBest(long questionId);
+
+    /**
+     * 批量删除
+     * @param ids ID列表
+     * @return 影响条数（不可信）
+     */
+    public int batchDelete(List<Long> ids);
+
+    /**
+     * 根据条件查询回答
+     * @param condition 查询条件
+     * @param page 分页参数
+     * @return 问题结果列表
+     */
+    public Page<Answer> selectByCondition(Map<String, Object> condition, Page<Answer> page);
 }

@@ -13,31 +13,36 @@ public interface FollowerService {
 
     /**
      * 添加一个关注
-     * @param userId 添加者ID
+     *
+     * @param userId     添加者ID
      * @param followerId 被关注者ID
+     * @param status     关注状态
      * @return 影响条数
      */
-    public int save(int userId, int followerId);
+    public int save(long userId, long followerId, int status);
 
     /**
      * 删除一个关注
-     * @param userId 操作者ID
+     *
+     * @param userId     操作者ID
      * @param followerId 被关注者ID
      * @return 影响条数
      */
-    public int delete(int userId, int followerId);
+    public int remove(long userId, long followerId);
 
     /**
      * 根据用户ID查找所有该ID的关注者
+     *
      * @param userId 用户ID
      * @return 关注者列表
      */
-    public Page<User> findFollowers(Page<User> page, int userId);
+    public Page<User> findFollowers(Page<User> page, long userId);
 
     /**
      * 根据关注者ID查找其所关注的用户
+     *
      * @param followerId 关注者ID
      * @return 关注列表
      */
-    public Page<User> findUsers(Page<User> page, int followerId);
+    public Page<User> findUsers(Page<User> page, long followerId);
 }

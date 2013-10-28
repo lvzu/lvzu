@@ -4,7 +4,6 @@ import com.lvzu.common.Page;
 import com.lvzu.common.dao.mybatis.MyBatisDaoSupport;
 import com.lvzu.dao.AnswerDao;
 import com.lvzu.model.Answer;
-import com.lvzu.model.Question;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 

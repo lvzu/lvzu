@@ -1,5 +1,6 @@
 package com.lvzu.service;
 
+import com.lvzu.common.Page;
 import com.lvzu.model.Footmark;
 
 /**
@@ -8,36 +9,28 @@ import com.lvzu.model.Footmark;
  * Time: 下午5:09
  * Description:
  */
-public interface FootmarkService {
+public interface FootmarkService extends BaseService<Footmark> {
 
     /**
-     * 创建游记。
-     * @param footmark 游记实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    public int save(Footmark footmark);
-
-
-    /**
-     * 编辑游记。
-     * @param footmark  游记实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    public int edit(Footmark footmark);
-
-    /**
-     * 删除游记。
-     * @param footmark  游记实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    public int remove(Footmark footmark);
-
-    /**
-     * 根据ID选先足迹
+     * 点击次数+1
+     *
      * @param id 足迹ID
-     * @return 足迹
      */
-    public Footmark select(long id);
+    public void hit(long id);
 
-    public
+    /**
+     * 顶次数+1
+     *
+     * @param id 足迹ID
+     */
+    public void top(long id);
+
+    /**
+     * 根据行程ID取出该行程的足迹
+     *
+     * @param journeyId 行程ID
+     * @param page      分页标签
+     * @return 足迹列表
+     */
+    public Page<Footmark> findByJourney(long journeyId, Page<Footmark> page);
 }

@@ -31,7 +31,7 @@ public class FollowerDaoImpl extends MyBatisDaoSupport<User> implements Follower
     }
 
     @Override
-    public int insert(int userId, int followerId,int status) {
+    public int insert(long userId, long followerId,int status) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("userId", userId);
         params.put("followerId", followerId);

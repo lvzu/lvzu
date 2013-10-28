@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Map;
 
 /**
- * User: robort
+ * User: lianghongbin
  * Date: 13-9-6
  * Time: 下午9:43
  * Description:
@@ -22,41 +22,7 @@ import java.util.Map;
 public class QuestionServiceImpl implements QuestionService{
     @Autowired
     @Qualifier("mybatis")
-    private QuestionDao questionMapper;
-
-    /**
-     * 对提问者更新回答。
-     *
-     * @param qMode 提问实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    @Override
-    public int editQuestion(Question qMode) {
-        return questionMapper.update(qMode);
-    }
-
-    /**
-     * 对提问者更新回答。
-     *
-     * @param qUserId    提问者ID
-     * @param questionId 问题ID
-     * @return 结果标记：成功：0  失败：1
-     */
-    @Override
-    public int removeByAuser(long qUserId, long questionId) {
-        return questionMapper.delete(qUserId, questionId);
-    }
-
-    /**
-     * 对提问者回答。
-     *
-     * @param qMode 提问实体
-     * @return 结果标记：成功：0  失败：1
-     */
-    @Override
-    public int saveQuestion(Question qMode) {
-        return questionMapper.insert(qMode);
-    }
+    private QuestionDao questionDao;
 
     /**
      * 取出所有的问题
@@ -66,7 +32,7 @@ public class QuestionServiceImpl implements QuestionService{
      */
     @Override
     public Page<Question> findAll(Page<Question> page) {
-        return questionMapper.selectAll(page);
+        return questionDao.selectAll(page);
     }
 
     /**
@@ -77,6 +43,50 @@ public class QuestionServiceImpl implements QuestionService{
      */
     @Override
     public Page<Question> findByCondition(Map<String, Object> condition, Page<Question> page) {
-        return questionMapper.selectByCondition(condition, page);
+        return questionDao.selectByCondition(condition, page);
+    }
+
+    /**
+     * 添加一个实体
+     *
+     * @param question 实体
+     * @return 影响条数
+     */
+    @Override
+    public int save(Question question) {
+        return questionDao.insert(question);
+    }
+
+    /**
+     * 删除一个实体
+     *
+     * @param id 实体ID
+     * @return 影响条数
+     */
+    @Override
+    public int remove(long id) {
+        return questionDao.delete(id);
+    }
+
+    /**
+     * 更新一个实体
+     *
+     * @param question 实体
+     * @return 影响条数
+     */
+    @Override
+    public int edit(Question question) {
+        return questionDao.update(question);
+    }
+
+    /**
+     * 根据ID获取一个实体
+     *
+     * @param id 实体ID
+     * @return 实体
+     */
+    @Override
+    public Question find(long id) {
+        return questionDao.select(id);
     }
 }

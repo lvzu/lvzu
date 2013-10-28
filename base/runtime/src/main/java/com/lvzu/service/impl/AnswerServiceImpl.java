@@ -1,5 +1,6 @@
 package com.lvzu.service.impl;
 
+import com.lvzu.common.Page;
 import com.lvzu.dao.AnswerDao;
 import com.lvzu.model.Answer;
 import com.lvzu.service.AnswerService;
@@ -8,8 +9,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Map;
+
 /**
- * User: robort
+ * User: lianghongbin
  * Date: 13-9-6
  * Time: 下午9:43
  * Description:
@@ -17,40 +21,108 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class AnswerServiceImpl implements AnswerService {
+
     @Autowired
     @Qualifier("mybatis")
-    private AnswerDao answerMapper;
+    private AnswerDao answerDao;
 
     /**
-     * 对提问者回答。
+     * 批量删除问题
      *
-     * @param aMode 回答实体
-     * @return 结果标记：成功：0  失败：1
+     * @param ids 问题列表
+     * @return 影响条数
      */
     @Override
-    public int answer(Answer aMode) {
-        return answerMapper.answerByQuser(aMode);
+    public int batchRemove(List<Long> ids) {
+        return answerDao.batchDelete(ids);
     }
 
     /**
-     * 对提问者更新回答。
+     * 获取指定问题的所有回答
      *
-     * @param aMode 回答者ID
-     * @return 结果标记：成功：0  失败：1
+     * @param condition 查找条件
+     * @param page      分页标签
+     * @return 回答列表
      */
     @Override
-    public int modify(Answer aMode) {
-        return answerMapper.updateByAuser(aMode);
+    public Page<Answer> findByQuestion(Map<String, Object> condition, Page<Answer> page) {
+        return answerDao.selectByCondition(condition, page);
     }
 
     /**
-     * 对提问者更新回答。
-     * @param aUserId  回答者ID
-     * @param answerId 回答内容ID
-     * @return 结果标记：成功：0  失败：1
+     * 获取指定人员的所有回答
+     *
+     * @param condition 查找条件
+     * @param page      分页标签
+     * @return 回答列表
      */
     @Override
-    public int remove(long aUserId , long answerId){
-        return answerMapper.deleteByAuser(aUserId,answerId);
+    public Page<Answer> findByUser(Map<String, Object> condition, Page<Answer> page) {
+        return answerDao.selectByUser(condition, page);
+    }
+
+    /**
+     * 设置一个问题的最佳答案
+     *
+     * @param condition 相关参数
+     */
+    @Override
+    public void updateBest(Map<String, Object> condition) {
+        answerDao.updateBest(condition);
+    }
+
+    /**
+     * 选出一个问题的最佳答案
+     *
+     * @param questionId 问题ID
+     * @return 最佳答案
+     */
+    @Override
+    public Answer findBest(long questionId) {
+        return answerDao.selectBest(questionId);
+    }
+
+    /**
+     * 添加一个实体
+     *
+     * @param answer 实体
+     * @return 影响条数
+     */
+    @Override
+    public int save(Answer answer) {
+        return answerDao.insert(answer);
+    }
+
+    /**
+     * 删除一个实体
+     *
+     * @param id 实体ID
+     * @return 影响条数
+     */
+    @Override
+    public int remove(long id) {
+        return answerDao.delete(id);
+    }
+
+    /**
+     * 更新一个实体
+     *
+     * @param answer 实体
+     * @return 影响条数
+     */
+    @Override
+    public int edit(Answer answer) {
+        return answerDao.update(answer);
+    }
+
+    /**
+     * 根据ID获取一个实体
+     *
+     * @param id 实体ID
+     * @return 实体
+     */
+    @Override
+    public Answer find(long id) {
+        return answerDao.select(id);
     }
 }

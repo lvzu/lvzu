@@ -5,7 +5,7 @@ import com.lvzu.common.Id;
 import java.util.Date;
 
 /**
- * User: liuhaiping
+ * User: lianghongbin
  * Date: 13-8-31
  * Time: 上午11:10
  * Description:游记中的每个足迹。描述一段旅程的内容。
