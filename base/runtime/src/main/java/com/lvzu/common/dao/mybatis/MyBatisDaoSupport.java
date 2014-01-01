@@ -100,6 +100,11 @@ public abstract class MyBatisDaoSupport<M> extends SqlSessionDaoSupport implemen
         return count;
     }
 
+    public long selectCount(String countId, Object parameter) {
+        Long count = getSqlSession().selectOne(NAMESPACE.concat(countId), parameter);
+        return count;
+    }
+
     private void inspectNamespace() {
         Class<?>[] interfaceClasses = ClassUtils.getAllInterfaces(this);
         for (Class<?> interfaceClass : interfaceClasses) {
@@ -112,5 +117,4 @@ public abstract class MyBatisDaoSupport<M> extends SqlSessionDaoSupport implemen
         //
         this.NAMESPACE += ".";
     }
-
 }

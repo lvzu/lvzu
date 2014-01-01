@@ -3,22 +3,21 @@
 <mapper namespace="com.lvzu.dao.QuestionDao">
     <cache />
 
-    <resultMap id="BaseResultMap" type="com.lvzu.model.Question">
+    <resultMap id="baseMap" type="com.lvzu.model.Question">
         <id     column="id"          property="id"          jdbcType="INTEGER"/>
         <result column="userid"      property="userId"      jdbcType="INTEGER"/>
-        <result column="journeyid"   property="journeyId"   jdbcType="INTEGER"/>
         <result column="title"       property="title"       jdbcType="VARCHAR"/>
         <result column="content" property="content" jdbcType="VARCHAR"/>
         <result column="status"      property="status"      jdbcType="INTEGER"/>
         <result column="createtime"  property="createTime"  jdbcType="TIMESTAMP"/>
         <result column="finishtime"  property="finishTime"  jdbcType="TIMESTAMP"/>
+        <association property="bestAnswer" column="bestanswerid" resultMap="com.lvzu.dao.AnswerDao.baseMap" select="com.lvzu.dao.AnswerDao.select"/>
     </resultMap>
 
-    <sql id="columns">
+    <sql id="baseSelect">
         SELECT
             id,
             userid,
-            journeyid,
             title,
             content,
             status,
@@ -27,34 +26,75 @@
         FROM question
     </sql>
 
-    <insert id="addQuestion" parameterType="Question">
+    <!--添加问题-->
+    <insert id="insert" parameterType="Question">
         INSERT INTO question (userid, journeyid, title, content, status, createtime, finishtime)
-            VALUES (#{userid}, #{journeyid}, #{title}, #{content}, 0, now(), #{finishtime})
+            VALUES (#{userId}, #{journeyId}, #{title}, #{content}, 0, now(), #{finishTime})
     </insert>
 
-
-    <update id="updateQuestion" parameterType="Question">
-        UPDATE question
-        SET journeyid=#{journeyid},
-            title =#{title},content=#{content},
-            status=#{status},finishtime=#{finishtime}
-        WHERE id = #{id}
-    </update>
-
-    <delete id="deleteByAuser" parameterType="java.lang.Long" >
-        DELETE * FROM question
-        WHERE userid=#{userid} AND id = #{id}
+    <!--删除问题-->
+    <delete id="delete" parameterType="long" >
+        DELETE * FROM question WHERE id = #{id}
     </delete>
 
-    <select id="selectAll" resultMap="BaseResultMap" parameterType="java.util.Map">
-        <include refid="columns"/>
+    <!--根据ID查找问题-->
+    <select id="select" resultMap="baseMap" parameterType="long">
+        <include refid="baseSelect"/> where id=#{id}
     </select>
 
-    <select id="findByCondition" parameterType="java.util.Map" resultMap="BaseResultMap">
-        <include refid="columns"/>
+    <select id="selectAll" resultMap="baseMap" parameterType="map">
+        <include refid="baseSelect"/> order by id desc
     </select>
 
-    <select id="selectAllCount" parameterType="java.util.Map" resultType="java.lang.Long">
-        select count(1) from user
+    <select id="findByCondition" parameterType="map" resultMap="baseMap">
+        <include refid="baseSelect"/>
+    </select>
+
+    <select id="selectCount" parameterType="map" resultType="long">
+        select count(1) from question
+    </select>
+
+    <select id="selectCountByUser" parameterType="long">
+        select count(1) from question where userid=#{userId}
+    </select>
+
+    <!--记录点击次数-->
+    <update id="hit" parameterType="long">
+        update question set hits=hits+1 where id=#{id}
+    </update>
+
+    <!--结束一个问题-->
+    <update id="finish" parameterType="long">
+        update question set status=1,finishtime=now() where status!=1 and id=#{id}
+    </update>
+
+    <!--关闭一个问题-->
+    <update id="close" parameterType="long">
+        update question set status=2 where status=0 and id=#{id}
+    </update>
+
+    <!--根据条件查找问题-->
+    <select id="selectByCondition" parameterType="map" resultMap="baseMap">
+        <include refid="columns"/><!--where-->
+    </select>
+
+    <!--根据用户ID查出其所有提问-->
+    <select id="selectByUser" parameterType="map" resultMap="baseMap">
+        <include refid="columns"/> where userid=#{userId}
+    </select>
+
+    <!--设置一个问题的最佳答案-->
+    <update id="updateBest" parameterType="map">
+        update question set bestanswerid=#{answerId} where id=#{id}
+    </update>
+
+    <!--根据条件取满足条件的问题条数-->
+    <select id="selectCountByCondition" resultType="int" parameterType="map">
+        select count(1) from question <!--condition-->
+    </select>
+
+    <!--查询所有问题的条数-->
+    <select id="selectCount" resultType="int">
+        select count(1) from question
     </select>
 </mapper>

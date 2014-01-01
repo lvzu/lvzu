@@ -5,7 +5,7 @@ import com.lvzu.common.Id;
 import java.util.Date;
 
 /**
- * User: liuhaiping
+ * User: lianghongbin
  * Date: 13-8-31
  * Time: 上午11:11
  * Description:回答问题的内容。

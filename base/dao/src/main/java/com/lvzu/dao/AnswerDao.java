@@ -2,7 +2,6 @@ package com.lvzu.dao;
 
 import com.lvzu.common.Page;
 import com.lvzu.model.Answer;
-import com.lvzu.model.Question;
 
 import java.util.List;
 import java.util.Map;
@@ -32,19 +31,6 @@ public interface AnswerDao extends BaseDao<Answer>{
     public Page<Answer> selectByUser(Map<String, Object> condition, Page<Answer> page);
 
     /**
-     * 设置一个问题的最佳答案
-     * @param condition 相关参数
-     */
-    public void updateBest(Map<String, Object> condition);
-
-    /**
-     * 选出一个问题的最佳答案
-     * @param questionId 问题ID
-     * @return 最佳答案
-     */
-    public Answer selectBest(long questionId);
-
-    /**
      * 批量删除
      * @param ids ID列表
      * @return 影响条数（不可信）
@@ -58,4 +44,31 @@ public interface AnswerDao extends BaseDao<Answer>{
      * @return 问题结果列表
      */
     public Page<Answer> selectByCondition(Map<String, Object> condition, Page<Answer> page);
+
+    /**
+     * 查找特定问题的答案条数
+     * @param questionId 问题ID
+     * @return 答案条数
+     */
+    public long selectCountByQuestion(long questionId);
+
+    /**
+     * 根据人员查询相关的答案数量
+     * @param condition 查询条件
+     * @return 答案条数
+     */
+    public long selectCountByUser(Map<String, Object> condition);
+
+    /**
+     * 根据条件查找答案的条数
+     * @param condition 查询条件
+     * @return 答案条数
+     */
+    public long selectCountByCondition(Map<String, Object> condition);
+
+    /**
+     * 查找所有答案的条数
+     * @return 条案条数
+     */
+    public long selectCount();
 }

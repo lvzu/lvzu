@@ -1,12 +1,13 @@
 package com.lvzu.dao;
 
 import com.lvzu.common.Page;
+import com.lvzu.model.Answer;
 import com.lvzu.model.Question;
 
 import java.util.Map;
 
 /**
- * User: robort
+ * User: lianghongbin
  * Date: 13-8-31
  * Time: 下午5:46
  * Description:
@@ -14,8 +15,8 @@ import java.util.Map;
 public interface QuestionDao extends BaseDao<Question> {
 
     /**
-     * @param id
-     * @return
+     * @param id 问题ID
+     * @return 影响条数
      */
     public int hit(long id);
 
@@ -60,4 +61,23 @@ public interface QuestionDao extends BaseDao<Question> {
      * @return 问题列表
      */
     public Page<Question> selectByUser(Map<String, Object> condition, Page<Question> page);
+
+    /**
+     * 设置一个问题的最佳答案
+     * @param condition 相关参数
+     */
+    public void updateBest(Map<String, Object> condition);
+
+    /**
+     * 根据条件取满足条件的问题条数
+     * @param condition 查询问题
+     * @return 条数
+     */
+    public long selectCountByCondition(Map<String, Object> condition);
+
+    /**
+     * 查询所有问题的条数
+     * @return 所有问题条数
+     */
+    public long selectCount();
 }

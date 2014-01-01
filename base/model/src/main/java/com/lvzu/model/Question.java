@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * User: liuhaiping
+ * User: lianghongbin
  * Date: 13-8-31
  * Time: 上午10:57
  * Description:提问者的问题内容。会创建游记计划或者只单纯问问题。

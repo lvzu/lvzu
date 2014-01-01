@@ -22,7 +22,7 @@ import java.util.Map;
 public class FollowerDaoImpl extends MyBatisDaoSupport<User> implements FollowerDao {
 
     @Override
-    public int delete(int userId, int followerId) {
+    public int delete(long userId, long followerId) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("userId", userId);
         params.put("followerId", followerId);
@@ -40,21 +40,21 @@ public class FollowerDaoImpl extends MyBatisDaoSupport<User> implements Follower
     }
 
     @Override
-    public Page<User> selectFollowers(Page<User> page, int userId) {
+    public Page<User> selectFollowers(Page<User> page, long userId) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("userId", userId);
         return fetchPage("selectFollowers", page, params);
     }
 
     @Override
-    public Page<User> selectUsers(Page<User> page, int followerId) {
+    public Page<User> selectUsers(Page<User> page, long followerId) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("followerId", followerId);
         return fetchPage("selectUsers", page, params);
     }
 
     @Override
-    public int cancelFollow(int userId, int followerId,int status,Date cancelTime) {
+    public int cancelFollow(long userId, long followerId,int status,Date cancelTime) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("userId", userId);
         params.put("followerId", followerId);

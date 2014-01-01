@@ -50,6 +50,37 @@ public class QuestionDaoImpl extends MyBatisDaoSupport<Question> implements Ques
     }
 
     /**
+     * 设置一个问题的最佳答案
+     *
+     * @param condition 相关参数
+     */
+    @Override
+    public void updateBest(Map<String, Object> condition) {
+        update("updateBest", condition);
+    }
+
+    /**
+     * 根据条件取满足条件的问题条数
+     *
+     * @param condition 查询问题
+     * @return 条数
+     */
+    @Override
+    public long selectCountByCondition(Map<String, Object> condition) {
+        return selectCount("selectCountByCondition", condition);
+    }
+
+    /**
+     * 查询所有问题的条数
+     *
+     * @return 所有问题条数
+     */
+    @Override
+    public long selectCount() {
+        return selectCount("selectCount", null);
+    }
+
+    /**
      * 增加点击次数
      * @param id 问题ID
      * @return 影响条数
