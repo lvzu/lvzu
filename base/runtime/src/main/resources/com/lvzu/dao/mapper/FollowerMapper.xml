@@ -3,26 +3,55 @@
 <mapper namespace="com.lvzu.dao.FollowerDao">
     <cache />
 
-    <insert id="insertByUserFollower" parameterType="java.util.Map">
-        insert into follower(userid, followerid,status) value(#{userId}, #{followerId})
+    <!--添加一个关注-->
+    <insert id="insertFollower" parameterType="map">
+        insert into follower(userid, followerid, status, createtime)
+        value(#{userId}, #{followerId}, 0, now())
     </insert>
 
-    <delete id="deleteByUserFollower" parameterType="java.util.Map">
-        DELETE FROM follower
-        WHERE userid = #{userId} AND followerid = #{followerId}
+    <!--添加一个黑名单-->
+    <insert id="insertBlack" parameterType="map">
+        insert into follower(userid,followerid,status,createtime)
+        value(#{userId},#{followerId},1,now())
+    </insert>
+
+    <!--删除一个关注-->
+    <delete id="deleteOne" parameterType="map">
+        delete from follower where userid=#{userId} and followerid=#{followerId}
     </delete>
 
-    <select id="selectFollowers" parameterType="java.util.Map" resultType="User">
-        select * from user where id in (select followerid from follower where userid=#{userId})
+    <!--根据ID删除一个关注-->
+    <delete id="delete" parameterType="long">
+        delete from follower where id=#{id}
+    </delete>
+
+    <!--根据用户ID查找所有该ID的关注者-->
+    <select id="selectFollowers" parameterType="long" resultType="com.lvzu.model.User">
+       select * from user where id in ( select followerid from follower where userid=#{userId} and status=0)
     </select>
 
-    <select id="selectUsers" parameterType="java.util.Map" resultType="User">
-        select * from user where id in (select userid from follower where followerid=#{followerId})
+    <!--根据用户查找所有该ID的关注者数量-->
+    <select id="selectFollowerCount" resultType="long" parameterType="long">
+        select count(1) from follower where userid=#{userId} and status=0
     </select>
 
-    <update id="cancelFollow" parameterType="java.util.Map">
-        update follower
-        set status= #{status},canceltime= #{cancelTime}
-        WHERE userid = #{userId} AND followerid = #{followerId}
-    </update>
+    <!--根据用户ID查找所有该ID设置的黑名单-->
+    <select id="selectBlacklist" parameterType="long" resultType="com.lvzu.model.User">
+        select * from user where id in ( select followerid from follower where userid=#{userId} and status=1)
+    </select>
+
+    <!--根据用户ID查找所有该ID设置的黑名单数量-->
+    <select id="selectBlacklistCount" parameterType="long" resultType="long">
+        select count(1) from follower where userid=#{userId} and status=1
+    </select>
+
+    <!--根据关注者ID查找其所关注的用户-->
+    <select id="selectUsers" parameterType="long" resultType="com.lvzu.model.User">
+        select * from user where id in ( select userid from follower where followerid=#{followerId} and status=0)
+    </select>
+
+    <!--根据关注者ID查找其所关注的用户数量-->
+    <select id="selectUserCount" parameterType="long" resultType="long">
+        select count(1) from follower where followerid=#{followerId} and status=0
+    </select>
 </mapper>
