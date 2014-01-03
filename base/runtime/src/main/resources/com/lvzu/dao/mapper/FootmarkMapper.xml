@@ -1,33 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lvzu.dao.FootmarkDao">
-    <cache />
-    <resultMap id="BaseResultMap" type="com.lvzu.model.Footmark">
-        <id     column="id"            property="id"              jdbcType="INTEGER"/>
-        <result column="journeyid"     property="journeyId"      jdbcType="INTEGER"/>
-        <result column="title"         property="title"         jdbcType="VARCHAR"/>
-        <result column="content"       property="content"        jdbcType="VARCHAR"/>
-        <result column="createtime"    property="createTime"   jdbcType="TIMESTAMP"/>
+    <cache/>
+    <resultMap id="baseMap" type="com.lvzu.model.Footmark">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="hits" property="hits" javaType="INTEGER"/>
+        <result column="top" property="top" javaType="INTEGER"/>
+        <result column="journeyid" property="journeyId" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="createtime" property="createTime" jdbcType="TIMESTAMP"/>
 
     </resultMap>
 
-    <insert id="addFootmark" parameterType="Footmark">
-        INSERT INTO footmark (journeyid, title, content, createtime)
-            VALUES (#{journeyid}, #{title}, #{content}, #{createtime})
+    <sql id="baseSelect">
+        select * from footmark
+    </sql>
+
+    <!--添加足迹-->
+    <insert id="insert" parameterType="Footmark">
+        insert into footmark(journeyid, title, content, createtime)
+        value(#{journeyId}, #{title}, #{content}, #{createTime})
     </insert>
 
-
-    <update id="editFootmark" parameterType="Footmark">
-        UPDATE footmark
-        SET journeyid=#{journeyid},
-            title =#{title},
-            content=#{content}
-        WHERE id = #{id}
-    </update>
-
-    <delete id="removeFootmark" parameterType="Footmark">
-        DELETE * FROM footmark
-        WHERE  id = #{id}
+    <!--删除足迹-->
+    <delete id="delete" parameterType="long">
+        delete from footmark where id=#{id}
     </delete>
 
+    <!--修改足迹-->
+    <update id="update" parameterType="Footmark">
+        update footmark set title=#{title}, content=#{content} where id=#{id}
+    </update>
+
+    <!--查找足迹-->
+    <select id="select" resultMap="baseMap" parameterType="long">
+        <include refid="baseSelect"/>
+        where id=#{id}
+    </select>
+
+    <!--点击次数+1-->
+    <update id="hits" parameterType="long">
+        update footmark set hits=hits+1 where id=#{id}
+    </update>
+
+    <!--被顶次数+1-->
+    <update id="top" parameterType="long">
+        update footmark set top=top+1 where id=#{id}
+    </update>
+
+    <!--根据行程ID取出该行程的足迹-->
+    <select id="selectByJourney" parameterType="long" resultMap="baseMap">
+        <include refid="baseSelect"/> where journeyid=#{journeyId}
+    </select>
+
+    <!--根据行程ID取出该行程的足迹数量-->
+    <select id="selectCountByJourney" parameterType="long" resultType="long">
+        select count(1) from footmark where journeyid=#{journeyId}
+    </select>
+
+    <!--根据条件查找行程-->
+    <select id="selectByCondition" resultMap="baseMap" parameterType="map">
+        <include refid="baseSelect"/>
+    </select>
+
+    <!--根据条件查找行程数量-->
+    <select id="selectCountByCondition" resultType="long" parameterType="map">
+        select count(1) from footmark
+    </select>
 </mapper>

@@ -12,11 +12,28 @@ import java.util.Date;
  */
 public class Footmark extends Id {
 
-
-    private long   journeyId;  //游记ID
+    private long hits;          //点击次数
+    private long top;           //被顶次数
+    private long journeyId;  //游记ID
     private String title;      //足迹标题
     private String content;    //足迹内容
-    private Date   createTime; //创建时间
+    private Date createTime; //创建时间
+
+    public long getHits() {
+        return hits;
+    }
+
+    public void setHits(long hits) {
+        this.hits = hits;
+    }
+
+    public long getTop() {
+        return top;
+    }
+
+    public void setTop(long top) {
+        this.top = top;
+    }
 
     public long getJourneyId() {
         return journeyId;
