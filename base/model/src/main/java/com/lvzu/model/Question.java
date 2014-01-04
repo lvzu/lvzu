@@ -15,14 +15,15 @@ import java.util.List;
 public class Question extends Id {
 
     private long userId;            //提问者ID
-    private String  title;          //问题标题
+    private String title;          //问题标题
     private String content;         //简单描述
     private int status;             //问题状态:0:问题中 1:问题结束  2:问题关闭
     private List<ScenicSpot> scenicSpots;   //相关联景点
     private long hits;              //点击次数
-    private Date    createTime;     //创建时间
-    private Date    finishTime;     //问题完成时间
-    private Answer  bestAnswer;     //最佳答案
+    private Date createTime;     //创建时间
+    private Date finishTime;     //问题完成时间
+    private Date lastAnswerTime; //最后回答时间
+    private Answer bestAnswer;     //最佳答案
 
     public long getUserId() {
         return userId;
@@ -86,6 +87,14 @@ public class Question extends Id {
 
     public void setFinishTime(Date finishTime) {
         this.finishTime = finishTime;
+    }
+
+    public Date getLastAnswerTime() {
+        return lastAnswerTime;
+    }
+
+    public void setLastAnswerTime(Date lastAnswerTime) {
+        this.lastAnswerTime = lastAnswerTime;
     }
 
     public Answer getBestAnswer() {

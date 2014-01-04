@@ -4,6 +4,7 @@ import com.lvzu.common.Page;
 import com.lvzu.dao.AnswerDao;
 import com.lvzu.model.Answer;
 import com.lvzu.service.AnswerService;
+import com.lvzu.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,8 @@ public class AnswerServiceImpl implements AnswerService {
     @Autowired
     @Qualifier("mybatis")
     private AnswerDao answerDao;
+    @Autowired
+    private QuestionService questionService;
 
     /**
      * 批量删除问题
@@ -124,6 +127,7 @@ public class AnswerServiceImpl implements AnswerService {
      */
     @Override
     public int save(Answer answer) {
+        questionService.lastAnswer(answer.getQuestionId());     //更新最后被回复的时间
         return answerDao.insert(answer);
     }
 

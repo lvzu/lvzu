@@ -81,6 +81,39 @@ public class QuestionDaoImpl extends MyBatisDaoSupport<Question> implements Ques
     }
 
     /**
+     * 查询最新发的问题
+     *
+     * @param page 分页参数
+     * @return 问题列表
+     */
+    @Override
+    public Page<Question> selectLastQuestion(Page<Question> page) {
+        return fetchPage("selectLastQuestion", page, null);
+    }
+
+    /**
+     * 查询最新被回答过的问题
+     *
+     * @param page 分页参数
+     * @return 问题列表
+     */
+    @Override
+    public Page<Question> selectByLastAnswer(Page<Question> page) {
+        return fetchPage("selectByLastAnswer", page, null);
+    }
+
+    /**
+     * 更新最后被回复的时间
+     *
+     * @param id 问题ID
+     * @return 影响条数
+     */
+    @Override
+    public int lastAnswer(long id) {
+        return update("lastAnswer", id);
+    }
+
+    /**
      * 增加点击次数
      * @param id 问题ID
      * @return 影响条数

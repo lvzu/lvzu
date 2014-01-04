@@ -75,12 +75,12 @@
 
     <!--根据条件查找问题-->
     <select id="selectByCondition" parameterType="map" resultMap="baseMap">
-        <include refid="columns"/><!--where-->
+        <include refid="baseSelect"/><!--where-->
     </select>
 
     <!--根据用户ID查出其所有提问-->
     <select id="selectByUser" parameterType="map" resultMap="baseMap">
-        <include refid="columns"/> where userid=#{userId}
+        <include refid="baseSelect"/> where userid=#{userId}
     </select>
 
     <!--设置一个问题的最佳答案-->
@@ -97,4 +97,19 @@
     <select id="selectCount" resultType="int">
         select count(1) from question
     </select>
+
+    <!--查询最新发的问题-->
+    <select id="selectLastQuestion" resultMap="baseMap">
+        <include refid="baseSelect"/> order by createtime desc
+    </select>
+
+    <!--查询最新被回答过的问题-->
+    <select id="selectByLastAnswer" resultMap="baseMap">
+        <include refid="baseSelect"/> order by lastanswertime desc
+    </select>
+
+    <!--修改最后被回复的时间-->
+    <update id="lastAnswer" parameterType="long">
+        update question set lastanswertime=now() where id=#{id}
+    </update>
 </mapper>

@@ -81,4 +81,25 @@ public interface QuestionService extends BaseService<Question> {
      * @return 所有问题条数
      */
     public long findCount();
+
+    /**
+     * 查询最新发的问题
+     * @param page 分页参数
+     * @return 问题列表
+     */
+    public Page<Question> findLastQuestion(Page<Question> page);
+
+    /**
+     * 查询最新被回答过的问题
+     * @param page 分页参数
+     * @return 问题列表
+     */
+    public Page<Question> findByLastAnswer(Page<Question> page);
+
+    /**
+     * 更新最后被回复的时间
+     * @param id 问题ID
+     * @return 影响条数
+     */
+    public int lastAnswer(long id);
 }

@@ -122,6 +122,39 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     /**
+     * 查询最新发的问题
+     *
+     * @param page 分页参数
+     * @return 问题列表
+     */
+    @Override
+    public Page<Question> findLastQuestion(Page<Question> page) {
+        return questionDao.selectLastQuestion(page);
+    }
+
+    /**
+     * 查询最新被回答过的问题
+     *
+     * @param page 分页参数
+     * @return 问题列表
+     */
+    @Override
+    public Page<Question> findByLastAnswer(Page<Question> page) {
+        return questionDao.selectByLastAnswer(page);
+    }
+
+    /**
+     * 更新最后被回复的时间
+     *
+     * @param id 问题ID
+     * @return 影响条数
+     */
+    @Override
+    public int lastAnswer(long id) {
+        return questionDao.lastAnswer(id);
+    }
+
+    /**
      * 添加一个实体
      *
      * @param question 实体
